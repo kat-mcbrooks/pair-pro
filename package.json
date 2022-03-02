@@ -1,5 +1,4 @@
 {
-  "name": "PairPro",
   "version": "1.0.0",
   "description": "Pair Programming website",
   "main": "server.js",

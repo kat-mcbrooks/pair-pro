@@ -65,9 +65,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Get user data
-// @route   GET /api/users/me
-// @access  Private
+// Get user data \\ GET /api/users/me \\access:  Private
 const getMe = asyncHandler(async (req, res) => {
   const { _id, name, email } = await User.findById(req.user.id);
 
@@ -76,6 +74,10 @@ const getMe = asyncHandler(async (req, res) => {
     name,
     email,
   });
+});
+
+const test = asyncHandler(async (req, res) => {
+  res.json({ message: "testing page" });
 });
 
 // Generate JWT
@@ -89,4 +91,5 @@ module.exports = {
   registerUser,
   loginUser,
   getMe,
+  test,
 };
