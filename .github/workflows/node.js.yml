@@ -3,11 +3,7 @@
 
 name: Node.js CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request] # Run on Push and Pull Requests
 
 jobs:
   build:
@@ -16,19 +12,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [12.x, 14.x, 16.x] # Only run the 10.x build
 
     steps:
-- uses: actions/checkout@v1
-- name: Uses Node.js ${{ matrix.node-version }}
-  uses: actions/setup-node@v1
-  with:
-  	node-version: ${{ matrix.node-version }}
-- run: npm install -g yarn
-        cache: 'yarn'
-   - name: yarn install, build, and test
-  run: |
-    yarn install
-    yarn run build
-    yarn test
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install -g yarn
+    - name: yarn install, build, and test
+      run: |
+        yarn
+        yarn build
+        yarn test
