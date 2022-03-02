@@ -10,7 +10,7 @@ connectDB();
 
 app.use(cors()); //cors is needed for security apparently
 
-app.use(express.json());
+app.use(express.json()); // this tells express: anything that comes in as body, convert it to json
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/users", require("./routes/userRoutes"));
