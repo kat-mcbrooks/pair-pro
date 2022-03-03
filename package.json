@@ -1,0 +1,8 @@
+{
+  "name": "pair-pro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/floriov/pair-pro.git",
+  "author": "Vanessa Florio <vanessaflorio1997@gmail.com>",
+  "license": "MIT"
+}
