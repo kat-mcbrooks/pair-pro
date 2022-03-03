@@ -1,5 +1,5 @@
 const express = require("express");
-require("dotenv").config({ path: "./config.env" }); //if we all save our .env files as .env, this should be: require("dotenv").config({ path: "./.env" })
+const dotenv = require("dotenv").config();
 const cors = require("cors");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
