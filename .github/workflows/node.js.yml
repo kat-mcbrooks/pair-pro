@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main, ci_cd ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, ci_cd]
+    branches: [ main ]
   
 
 jobs:
@@ -28,7 +28,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: rm -rf node_modules && yarn install --frozen-lockfile
-    - run: yarn run --if-defined 
+    - run: yarn run --if-defined
+    - run: yarn test --if-present 
 
   lint:  
 
@@ -40,13 +41,7 @@ jobs:
       run: yarn eslint --config ./.eslintrc.js --ignore-path ./.eslintignore ${{ steps.get_file_changes.outputs.files_added }} ${{ steps.get_file_changes.outputs.files_modified }} --fix
    
 
-  test:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Testing
-      run: yarn test --if-present
+  
 
     
         
