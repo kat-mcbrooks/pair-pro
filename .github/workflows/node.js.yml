@@ -36,24 +36,17 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    #steps:
-    #- name: ESLint Checking
+    steps:
+    - name: ESLint Checking
       #if: ${{ always() && (steps.get_file_changes.outputs.files_added || steps.get_file_changes.outputs.files_modified) }}
       #run: yarn eslint --config ./.eslintrc.js --ignore-path ./.eslintignore ${{ steps.get_file_changes.outputs.files_added }} ${{ steps.get_file_changes.outputs.files_modified }} --fix
-   
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+        cache-dependency-path:'**/eslintrc.json'
     
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - run: rm -rf node_modules && yarn install --frozen-lockfile
-      - uses: sibiraj-s/action-eslint@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }} # Optional
-          eslint-args: '--ignore-path=.gitignore --quiet'
-          extensions: 'js,jsx,ts,tsx'
-          annotations: true
+    
 
   
 
