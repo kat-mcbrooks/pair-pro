@@ -41,11 +41,12 @@ jobs:
    
 
   test:
+
     runs-on: ubuntu-latest
 
     steps:
     - name: Testing
-    - run: yarn test --if-present
+      run: yarn test --if-present
 
     
         
