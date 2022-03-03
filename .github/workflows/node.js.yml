@@ -25,9 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: yarn install
-      - name: Run build
-        run: yarn run build
-      - name: eslint
-        uses: icrawl/action-eslint@v1
+        run: yarn 
+      - name: Run ESLint
+        run: eslint . --ext .js,.jsx,.ts,.tsx
 
