@@ -1,18 +1,16 @@
-const express = require("express");
-// userRoutes is an instance of the express router. We use it to define our routes.
-const userRoutes = express.Router();
+const express = require('express')
+const userRouter = express.Router()
+
 const {
+  getUsers,
   registerUser,
   loginUser,
-  getMe,
-  test,
-} = require("../controllers/userController");
-const { protect } = require("../middleware/authMiddleware");
+  getMe 
+} = require('../controllers/userController')
+const { protect } = require('../middleware/authMiddleware')
 
-// when we hit the below urls, call the relevant controller function
-userRoutes.post("/", registerUser);
-userRoutes.post("/login", loginUser);
-userRoutes.get("/me", protect, getMe);
-userRoutes.get("/test", test);
+userRouter.route('/').get(getUsers).post(registerUser)
+userRouter.post('/login', loginUser)
+userRouter.get('/me', protect, getMe)
 
-module.exports = userRoutes;
+module.exports = userRouter
