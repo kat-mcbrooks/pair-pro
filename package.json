@@ -1,11 +1,12 @@
 {
+  "name": "pair-pro",
   "version": "1.0.0",
   "description": "Pair Programming website",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "client": "yarn start --prefix frontend",
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "yarn --cwd ./client run start",
     "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "license": "MIT",
