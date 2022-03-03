@@ -44,7 +44,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-        cache-dependency-path: '**/eslintrc.json'
+        cache-dependency-path: '**/package-lock.json'
+        
     
     
 
