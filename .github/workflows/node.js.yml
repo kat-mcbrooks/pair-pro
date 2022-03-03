@@ -27,7 +27,7 @@ jobs:
         cache: 'yarn'
     - run: rm -rf node_modules && yarn install --frozen-lockfile
     - run: yarn run --if-defined 
-    - run: yarn run build:pair-pro
+    - run: yarn run build
     
         
 
