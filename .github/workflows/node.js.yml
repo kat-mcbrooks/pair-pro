@@ -28,8 +28,8 @@ jobs:
     - name: Run ESLint
       run: eslint . --ext .js,.jsx,.ts,.tsx
     - name: Runs yarn version of npm ci and npm run --if-defined
-    - run: rm -rf node_modules && yarn install --frozen-lockfile
-    - run: yarn run --if-defined 
+      run: rm -rf node_modules && yarn install --frozen-lockfile
+      run: yarn run --if-defined 
    
     
         
