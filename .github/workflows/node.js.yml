@@ -25,8 +25,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: rm -rf node_modules && yarn install --frozen-lockfile
-    - run: yarn run --if-defined 
+      run: rm -rf node_modules && yarn install --frozen-lockfile
+      run: yarn run --if-defined 
+
+  lint:  
+
+    runs-on: ubuntu-latest
+
+    steps:
     - name: ESLint Checking
       if: ${{ always() && (steps.get_file_changes.outputs.files_added || steps.get_file_changes.outputs.files_modified) }}
       run: yarn eslint --config ./.eslintrc.js --ignore-path ./.eslintignore ${{ steps.get_file_changes.outputs.files_added }} ${{ steps.get_file_changes.outputs.files_modified }} --fix
