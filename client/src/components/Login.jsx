@@ -20,7 +20,7 @@ function Login() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    axios.post(`/api/users/login`, {
+    axios.post(`http://localhost:5000/api/users/login`, {
       email: email, 
       password: password
     })
