@@ -6,6 +6,8 @@ name: Node.js CI
 on:
   push:
     branches: [ main, ci_cd ]
+  pull_request:
+    branches: [ main, ci_cd]
   
 
 jobs:
@@ -37,6 +39,14 @@ jobs:
       if: ${{ always() && (steps.get_file_changes.outputs.files_added || steps.get_file_changes.outputs.files_modified) }}
       run: yarn eslint --config ./.eslintrc.js --ignore-path ./.eslintignore ${{ steps.get_file_changes.outputs.files_added }} ${{ steps.get_file_changes.outputs.files_modified }} --fix
    
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Testing
+    - run: yarn test --if-present
+
     
         
 
