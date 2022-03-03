@@ -29,7 +29,7 @@ jobs:
         cache: 'yarn'
     - run: rm -rf node_modules && yarn install --frozen-lockfile
     - run: yarn run --if-defined
-    - run: yarn test --if-present 
+    - run: yarn test --if-defined
 
   lint:  
 
