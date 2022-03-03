@@ -25,9 +25,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - cmd: rm -rf node_modules && yarn install --frozen-lockfile
-    - cmd: yarn run --if-defined script-name
-    - cmd: yarn test
+    - run: rm -rf node_modules && yarn install --frozen-lockfile
+    - run: yarn run --if-defined script-name
+    - run: yarn test
         
 
       
