@@ -29,11 +29,6 @@ jobs:
         cache: 'yarn'
     - run: rm -rf node_modules && yarn install --frozen-lockfile
     - run: yarn run --if-defined
-    - run: yarn test
-      working-directory: ./client
-      #with:
-       # node-version: ${{ matrix.node-version }}
-        #cache: 'yarn'
     
 
 
