@@ -1,43 +1,60 @@
-import axios from 'axios'
-import {useState} from 'react'
-import {FaUser} from 'react-icons/fa'
+import axios from "axios";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { FaUser } from "react-icons/fa";
+import { AuthContext } from "../App";
 
-function Register() {
+const Register = () => {
+  const { dispatch } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password2: '',
-    languages: '',
-    bio: ''
-  })
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
+    languages: "",
+    bio: "",
+  });
 
-  const { name, email, password, password2, languages, bio } = formData
+  const { name, email, password, password2, languages, bio } = formData;
+
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    axios.post(`http://localhost:5000/api/users/`, {
-      name: name,  
-      email: email, 
-      password: password,
-      languages: languages,
-      bio: bio
-    })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-
-    window.location.href = '/'
-  }
+    if (password !== password2) {
+      toast.error("Passwords do not match");
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+        languages,
+        bio,
+      };
+      axios.post(`http://localhost:5000/api/users/`, userData).then((res) => {
+        console.log(res.data.token);
+        localStorage.setItem("userToken", res.data.token);
+        dispatch({
+          type: "LOGIN",
+          // payload: res.data,
+          // remember: rememberMe,
+        });
+        navigate("/").catch(() => {
+          toast("WRONG");
+        });
+      });
+    }
+  };
 
   const [ nameValue ] = useState()
   const [ emailValue ] = useState()
@@ -47,6 +64,7 @@ function Register() {
   const [ bioValue ] = useState()
 
   return (
+
   <>
     <section className='heading'>
       <h1 data-testid="register text">
@@ -134,4 +152,5 @@ function Register() {
   )
 }
 
-export default Register
+
+export default Register;

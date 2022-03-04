@@ -1,12 +1,20 @@
-import axios from 'axios'
-import {useState} from 'react'
-import {FaSignInAlt} from 'react-icons/fa'
+import axios from "axios";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaSignInAlt } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { AuthContext } from "../App";
 
-function Login() {
+const Login = () => {
+  const { dispatch } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  })
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+
 
   //add input value
   const [ inputValue ] = useState()
@@ -14,29 +22,40 @@ function Login() {
 
   const { email, password } = formData
 
+  const navigate = useNavigate();
+
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    axios.post(`http://localhost:5000/api/users/login`, {
-      email: email, 
-      password: password
-    })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
+    axios
+      .post("/api/users/login", {
+        email: email,
+        password: password,
       })
-
-    window.location.href = '/'
-  }
+      .then((res) => {
+        localStorage.setItem("userToken", res.data.token);
+        dispatch({
+          type: "LOGIN",
+          // payload: res.data,
+          // remember: rememberMe,
+        });
+        navigate("/");
+      })
+      .catch(() => {
+        toast("Incorrect email or password");
+      });
+  };
 
   return (
+
   <>
     <section  className='heading'>
       <h1 data-testid="login text">
@@ -81,4 +100,5 @@ function Login() {
   )
 }
 
-export default Login
+
+export default Login;
