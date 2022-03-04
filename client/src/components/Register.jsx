@@ -1,8 +1,10 @@
 import axios from 'axios'
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
+import {toast} from 'react-toastify'
 import {FaUser} from 'react-icons/fa'
 
-function Register() {
+const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,6 +16,8 @@ function Register() {
 
   const { name, email, password, password2, languages, bio } = formData
 
+  const navigate = useNavigate()
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -24,19 +28,23 @@ function Register() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    axios.post(`http://localhost:5000/api/users/`, {
-      name: name,  
-      email: email, 
-      password: password,
-      languages: languages,
-      bio: bio
-    })
+     if (password !== password2) {
+      toast.error('Passwords do not match')
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      }
+      axios.post(`/api/users/`, userData)
       .then(res => {
-        console.log(res);
-        console.log(res.data);
+        console.log(res.data.token);
+        localStorage.setItem('userToken', res.data.token);
+        navigate('/')
+      .catch(() => {
+        toast('WRONG')})
       })
-
-    window.location.href = '/'
+    }
   }
 
   return (
