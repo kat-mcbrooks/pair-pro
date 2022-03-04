@@ -50,10 +50,11 @@ function App() {
   }, [state.isLoggedIn]);
 
   return (
+
     <AuthContext.Provider value={{ state, dispatch }}>
       <>
         <Router>
-          <div className="container">
+          <div data-testid="container" className="container">
             <Header />
             <Routes>
               <Route path="/home" element={<Home />} />
@@ -67,6 +68,7 @@ function App() {
         <ToastContainer />
       </>
     </AuthContext.Provider>
+
   );
 }
 

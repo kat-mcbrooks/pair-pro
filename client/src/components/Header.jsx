@@ -1,8 +1,13 @@
+
+
+
+
 import { useState, useContext } from "react";
 import { AuthContext } from "../App";
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
 
 function Header() {
   // read authcontext value from the context object using useContext Hook in the component that needs the authcontext value(in our case, Header)
@@ -23,9 +28,11 @@ function Header() {
   };
 
   return (
-    <header className="header">
+
+    <header data-testid="nav" className="header">
       <div className="logo">
         <Link to="/">PairPro</Link>
+
       </div>
       <ul>
         {state.isLoggedIn ? (
@@ -49,6 +56,7 @@ function Header() {
           </>
         )}
       </ul>
+      
     </header>
   );
 }

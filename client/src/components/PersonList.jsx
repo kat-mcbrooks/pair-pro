@@ -13,8 +13,10 @@ const PersonList = () => {
     });
   }, []);
 
+
+
   return (
-    <ul>
+    <ul data-testid="name">
       {persons.map((person) => (
         <>
           <li key={person.name}>Name: {person.name}</li>
@@ -28,3 +30,4 @@ const PersonList = () => {
 };
 
 export default PersonList;
+
