@@ -1,82 +1,93 @@
-import axios from 'axios'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { FaSignInAlt } from 'react-icons/fa'
-import { toast } from 'react-toastify'
+import axios from "axios";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaSignInAlt } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { AuthContext } from "../App";
 
 const Login = () => {
+  const { dispatch } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  })
+    email: "",
+    password: "",
+  });
 
-  const { email, password } = formData
+  const { email, password } = formData;
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    axios.post('/api/users/login', {
-      email: email,
-      password: password
-    })
-      .then(res => {
-          localStorage.setItem('userToken', res.data.token);
-          navigate('/')})
-       .catch(() => {
-         toast('Incorrect email or password')})
-  }
+    axios
+      .post("/api/users/login", {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        localStorage.setItem("userToken", res.data.token);
+        dispatch({
+          type: "LOGIN",
+          // payload: res.data,
+          // remember: rememberMe,
+        });
+        navigate("/");
+      })
+      .catch(() => {
+        toast("Incorrect email or password");
+      });
+  };
 
   return (
     <>
-      <section className='heading'>
+      <section className="heading">
         <h1>
           <FaSignInAlt /> Login
         </h1>
         <p>Log in and pair up</p>
       </section>
 
-      <section className='form'>
+      <section className="form">
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
-              type='email'
-              className='form-control'
-              id='email'
-              name='email'
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
               value={email}
-              placeholder='Enter your email'
+              placeholder="Enter your email"
               onChange={onChange}
             />
           </div>
           <div className="form-group">
             <input
-              type='password'
-              className='form-control'
-              id='password'
-              name='password'
+              type="password"
+              className="form-control"
+              id="password"
+              name="password"
               value={password}
-              placeholder='Enter password'
+              placeholder="Enter password"
               onChange={onChange}
             />
           </div>
           <div className="form-group">
-            <button type='submit' className='btn btn-block'>
+            <button type="submit" className="btn btn-block">
               Submit
             </button>
           </div>
         </form>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
