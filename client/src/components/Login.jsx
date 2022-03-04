@@ -13,9 +13,6 @@ const Login = () => {
     password: "",
   });
 
-  const { email, password } = formData;
-
-
   //add input value
   const [ inputValue ] = useState()
   const [ passwordValue ] = useState()
