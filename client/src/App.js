@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <Router>
-        <div className='container'>
+        <div data-testid="container" className='container'>
           <Header />
           <Routes>
             <Route path='/home' element={<Home />} />
