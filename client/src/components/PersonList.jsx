@@ -1,34 +1,30 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
 
-export default class PersonList extends React.Component {
-  state = {
-    persons: []
-  }
+const PersonList = () => {
+  const [persons, setPersons] = useState([]);
 
-  componentDidMount() {
-    axios.get(`http://localhost:5000/api/users/`)
-      .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
-      })
-  }
+  useEffect(() => {
+    axios.get(`/api/users/`).then((res) => {
+      const persons = res.data;
+      setPersons(persons);
+    });
+  }, []);
 
-  render() {
-    return (
-      <ul>
-        {
-          this.state.persons
-            .map(person =>
-              <>
-                <li className={person._id}>Name: {person.name}</li>
-                <li className={person._id}>Languages: {person.languages}</li>
-                <li className={person._id}>Bio: {person.bio}</li>
-                <br></br>
-              </>
-            )
-        }
-      </ul>
-    )
-  }
-}
+  return (
+    <ul>
+      {persons.map((person) => (
+        <>
+          <li key={person.name}>Name: {person.name}</li>
+          <li key={person.languages}>Languages: {person.languages}</li>
+          <li key={person.bio}>Bio: {person.bio}</li>
+          <br></br>
+        </>
+      ))}
+    </ul>
+  );
+};
+
+export default PersonList;
