@@ -3,6 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import axios from 'axios';
+
+
+axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.headers.common['Authorization'] = localStorage.userToken ? `Bearer ${localStorage.userToken}` : null ;
 
 ReactDOM.render(
   <React.StrictMode>
