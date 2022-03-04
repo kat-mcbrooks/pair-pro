@@ -35,8 +35,10 @@ const Register = () => {
         name,
         email,
         password,
+        languages,
+        bio
       }
-      axios.post(`/api/users/`, userData)
+      axios.post(`http://localhost:5000/api/users/`, userData)
       .then(res => {
         console.log(res.data.token);
         localStorage.setItem('userToken', res.data.token);

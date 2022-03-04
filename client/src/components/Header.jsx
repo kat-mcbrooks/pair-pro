@@ -4,9 +4,13 @@ import {Link, useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 function Header() {
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState()
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    localStorage.userToken ? setLoggedIn(true) : setLoggedIn(false)
+  }, [loggedIn])
 
   const logout = () => {
     localStorage.removeItem('userToken');
@@ -19,13 +23,13 @@ function Header() {
         <Link to='/'>PairPro</Link>
       </div>
       <ul>
-
+       {loggedIn ?
           <li>
             <button className='btn' onClick={logout}>
               <FaSignOutAlt /> Logout
             </button>
           </li>
-        
+          :
           <>
             <li>
               <Link to='/login'>
@@ -38,7 +42,7 @@ function Header() {
               </Link>
             </li>
           </>         
-        
+        } 
       </ul>
     </header>
   )
