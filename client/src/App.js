@@ -1,3 +1,8 @@
+
+import firebase from 'firebase/compat/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/analytics';
 import { createContext, useEffect, useReducer } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -8,6 +13,21 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import PersonList from "./components/PersonList";
 import Me from "./components/Me";
+
+
+
+firebase.initializeApp({
+
+  apiKey: "AIzaSyCh9q0J5NwhCqyMV9QJ_BwCYkqJsmM54As",
+  authDomain: "pair-pro-3243f.firebaseapp.com",
+  databaseURL: "https://pair-pro-3243f-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "pair-pro-3243f",
+  storageBucket: "pair-pro-3243f.appspot.com",
+  messagingSenderId: "178415312286",
+  appId: "1:178415312286:web:33dec2aa651e971e890a8f"
+
+})
+
 
 export const AuthContext = createContext();
 // const App = () => {
