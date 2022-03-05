@@ -9,16 +9,13 @@ import Register from "./components/Register";
 import PersonList from "./components/PersonList";
 import Me from "./components/Me";
 
+// create a context object
 export const AuthContext = createContext();
-// const App = () => {
-// create a context object, then pass the value for the context object we created.
-
+// set the initial state, which will be passed to the useReducer hook.
 const initialState = {
   isLoggedIn: localStorage.getItem("userToken") ? true : false,
-  // user: null, //not sure why these lines like this...?
-  // token: null,
 };
-// this function will be passed to useReducer, which will return a user object as state and a dispatch method for triggering state updates/changes
+// the reducer function returns a state value, triggered by an action type. It takes 2 arguments: the current state and the action (which is like an 'instruction'). This reducer function will be passed to useReducer.
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
@@ -28,29 +25,25 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoggedIn: true,
-        // user: action.payload,
       };
     case "LOGOUT":
-      // window.localStorage.clear();
       return {
         ...state,
         isLoggedIn: false,
-        // user: null,
       };
     default:
       return state;
   }
 };
-//pass the useReducer function two arguments a reducer and an initial state. When we want to update the state we call the dispatch method with type property that specifics the type of state changes we want to trigger i.e. type: "LOGIN" in login.jsx
+//pass the useReducer function two arguments a reducer function and an initial state. it returns an array that holds the current state value and a dispatch function. When we want to update the state, we call the dispatch function
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     return () => {};
   }, [state.isLoggedIn]);
-
+  // After creating the context object, a Provider component is used to wrap all the components that need access to the AuthContext object. This means that only components within the AuthContext Provider can get access to the user object and dispatch method
   return (
-
     <AuthContext.Provider value={{ state, dispatch }}>
       <>
         <Router>
@@ -68,10 +61,7 @@ function App() {
         <ToastContainer />
       </>
     </AuthContext.Provider>
-
   );
 }
-
-// After creating the context object, a Provider component is used to wrap all the components that need access to the AuthContext object. This means that only components within the AuthContext Provider can get access to the user object and dispatch method
 
 export default App;
