@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../App";
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   // read authcontext value from the context object using useContext Hook in the component that needs the authcontext value(in our case, Header)
   // if the context value of the AuthContext.Provider(see app.js) changes, any component that calls the useContext will be rerendered with the latest value in the context provider.
   const { dispatch } = useContext(AuthContext);
   const { state } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   // then check the login state, reading it from
   //const [loginStatus, setLoginStatus] = useState(state.isLoggedIn);
 
@@ -17,6 +17,7 @@ function Header() {
     dispatch({
       type: "LOGOUT",
     });
+    navigate("/home");
   };
 
   return (

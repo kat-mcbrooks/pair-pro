@@ -41,17 +41,20 @@ const Register = () => {
         languages,
         bio,
       };
-      axios.post(`http://localhost:5000/api/users/`, userData).then((res) => {
-        console.log(res.data.token);
-        localStorage.setItem("userToken", res.data.token);
-        dispatch({
-          type: "LOGIN",
-          // remember: rememberMe,
+      axios
+        .post(`http://localhost:5000/api/users/`, userData)
+        .then((res) => {
+          console.log(res.data.token);
+          localStorage.setItem("userToken", res.data.token);
+          dispatch({
+            type: "LOGIN",
+            // remember: rememberMe,
+          });
+          navigate("/");
+        })
+        .catch(() => {
+          toast("something is wrong");
         });
-        navigate("/").catch(() => {
-          toast("WRONG");
-        });
-      });
     }
   };
 
