@@ -1,9 +1,9 @@
-import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
-import { AuthContext } from "../App";
+import { AuthContext } from "../context/AuthContext";
+import { registerCall } from "../apiCalls";
 
 const Register = () => {
   const { dispatch } = useContext(AuthContext);
@@ -41,20 +41,7 @@ const Register = () => {
         languages,
         bio,
       };
-      axios
-        .post(`http://localhost:5000/api/users/`, userData)
-        .then((res) => {
-          console.log(res.data.token);
-          localStorage.setItem("userToken", res.data.token);
-          dispatch({
-            type: "LOGIN",
-            // remember: rememberMe,
-          });
-          navigate("/");
-        })
-        .catch(() => {
-          toast("something is wrong");
-        });
+      registerCall(userData, dispatch); //calls api in separate file
     }
   };
 
@@ -64,7 +51,7 @@ const Register = () => {
   const [confirmpasswordValue] = useState();
   const [languagesValue] = useState();
   const [bioValue] = useState();
-
+  console.log("register page");
   return (
     <>
       <section className="heading">

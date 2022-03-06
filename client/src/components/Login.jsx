@@ -1,12 +1,10 @@
-import axios from "axios";
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { FaSignInAlt } from "react-icons/fa";
-import { toast } from "react-toastify";
-import { AuthContext } from "../App";
+import { AuthContext } from "../context/AuthContext";
+import { loginCall } from "../apiCalls";
 
 const Login = () => {
-  const { dispatch } = useContext(AuthContext);
+  const { isFetching, dispatch } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -19,8 +17,6 @@ const Login = () => {
 
   const { email, password } = formData;
 
-  const navigate = useNavigate();
-
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -30,23 +26,7 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    axios
-      .post("/api/users/login", {
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        localStorage.setItem("userToken", res.data.token);
-        dispatch({
-          type: "LOGIN",
-          // remember: rememberMe,
-        });
-        navigate("/");
-      })
-      .catch(() => {
-        toast("Incorrect email or password");
-      });
+    loginCall({ email: email, password: password }, dispatch);
   };
 
   return (
@@ -85,7 +65,7 @@ const Login = () => {
           </div>
           <div data-testid="add-btn" className="form-group">
             <button type="submit" className="btn btn-block">
-              Submit
+              {isFetching ? "loading" : "Log in"}
             </button>
           </div>
         </form>
