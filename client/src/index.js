@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import axios from 'axios';
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css"; // or import './index.scss';
 
-
-axios.defaults.baseURL = 'http://localhost:5000';
-axios.defaults.headers.common['Authorization'] = localStorage.userToken ? `Bearer ${localStorage.userToken}` : null ;
+axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.headers.common["Authorization"] = localStorage.userToken
+  ? `Bearer ${localStorage.userToken}`
+  : null;
 
 ReactDOM.render(
   <React.StrictMode>
