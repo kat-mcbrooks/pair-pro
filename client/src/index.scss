@@ -1,5 +1,14 @@
-@import "~bootstrap/scss/bootstrap.scss";
-
 .navbar {
   background-color: white;
 }
+
+* {
+  text-align: center;
+}
+
+.dark-teal {
+  background-color: teal;
+}
+
+@import "~bootstrap/scss/bootstrap.scss";
+

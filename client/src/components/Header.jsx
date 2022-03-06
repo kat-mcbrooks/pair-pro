@@ -17,18 +17,18 @@ function Header() {
   };
 
   return (
-    <div>
-      <Navbar fluid='true' className='navbar' variant="light" bg="light">
+ 
+      <Navbar fluid='true' className='dark-teal' variant="dark">
         <Container>
           <Navbar.Brand href="/">PairPro</Navbar.Brand>
           <Nav>
-            <Button variant="outline-success" onClick={logout}>Logout</Button>
+            <Button variant="success" onClick={logout}>Logout</Button>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/register">Sign Up</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-    </div>
+
   );
 }
     

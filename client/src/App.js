@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import PersonList from "./components/PersonList";
 import Me from "./components/Me";
+import "./index.scss";
 
 export const AuthContext = createContext();
 // const App = () => {
@@ -54,7 +55,7 @@ function App() {
     <AuthContext.Provider value={{ state, dispatch }}>
       <>
         <Router>
-          <div data-testid="container" className="container">
+          <div data-testid="container">
             <Header />
             <Routes>
               <Route path="/home" element={<Home />} />
