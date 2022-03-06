@@ -32,11 +32,13 @@ function App() {
             ></Route>
             <Route
               path="/register"
-              element={state.isLoggedIn ? <Home /> : <Register />}
+              element={
+                state.isLoggedIn ? <Navigate to="/home" /> : <Register />
+              }
             ></Route>
             <Route
               path="/me"
-              element={state.isLoggedin ? <Me /> : <Home />}
+              element={state.isLoggedin ? <Me /> : <Navigate to="/home" />}
             ></Route>
           </Routes>
         </div>
