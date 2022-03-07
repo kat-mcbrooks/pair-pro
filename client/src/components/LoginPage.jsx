@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaSignInAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { AuthContext } from "../App";
 
@@ -44,7 +43,7 @@ const Login = () => {
           // payload: res.data,
           // remember: rememberMe,
         });
-        navigate("/");
+        navigate("/pairpros");
       })
       .catch(() => {
         toast("Incorrect email or password");
@@ -52,15 +51,13 @@ const Login = () => {
   };
 
   return (
-
   <>
-    <section  className='heading'>
-      <h1 data-testid="login text">
-        <FaSignInAlt />Login
-      </h1>
-      <p data-testid="login phrase">Log in and pair up</p>
-    </section>
-  
+    <div className='sml-banner-image'>
+      <div className="white-bg dark-teal-text full-width">
+        <h1 className="purple-text">Login</h1>
+        <h3 className="dark-teal-text courier">Welcome back to PairPro!</h3>
+      </div>
+    </div>
 
     <section className='form'>
       <form onSubmit ={onSubmit}>
@@ -96,6 +93,5 @@ const Login = () => {
   </>
   )
 }
-
 
 export default Login;

@@ -1,5 +1,98 @@
-@import "~bootstrap/scss/bootstrap.scss";
+* {
+  text-align: center;
+}
 
-.navbar {
+.home-banner-image {
+  background-image: url(./assets/banner.png);
+  background-position-x: right;
+  background-position-y: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.home-banner-text {
+  position: absolute; top: 30vh; right: 20vh; 
+  padding-left: 20vh;
+}
+
+.sml-banner-image {
+  background-image: url(./assets/sml-banner.png);
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+$theme-colors: (
+    "success": #00c2cb, 
+    "info": #5ec9cc,
+    "danger": #f9a72c,
+    "warning": #ffbd59,
+    "primary": #8c52ff,
+    "dark": #343434
+);
+
+.dark-teal-bg {
+  background-color: #00c2cb;
+}
+
+.dark-teal-text {
+  color: #00c2cb;
+}
+
+.light-teal-bg {
+  background-color: #5ec9cc;
+}
+
+.dark-orange-bg {
+  background-color: #f9a72c;
+}
+
+.dark-orange-text {
+  color: #f9a72c;
+}
+
+.light-orange-bg {
+  background-color: #ffbd59;
+}
+
+.purple-bg {
+  background-color:  #8c52ff;
+}
+
+.purple-text {
+  color:  #8c52ff;
+}
+
+
+.dark-grey-bg {
+  background-color: #343434;
+}
+
+.white-bg {
   background-color: white;
 }
+
+.white-text {
+  color: white;
+}
+
+.courier {
+  font-family: 'Courier New', Courier, monospace
+}
+
+.varela {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+@import "~bootstrap/scss/bootstrap.scss";
+

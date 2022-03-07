@@ -4,7 +4,7 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.css"; // or import './index.scss';
+
 
 axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.headers.common["Authorization"] = localStorage.userToken
