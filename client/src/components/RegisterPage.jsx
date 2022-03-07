@@ -49,7 +49,7 @@ const Register = () => {
           // payload: res.data,
           // remember: rememberMe,
         });
-        navigate("/").catch(() => {
+        navigate("/pairpros").catch(() => {
           toast("WRONG");
         });
       });
@@ -151,6 +151,5 @@ const Register = () => {
   </>
   )
 }
-
 
 export default Register;

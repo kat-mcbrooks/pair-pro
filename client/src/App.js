@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import PersonList from "./components/PersonList";
-import Me from "./components/Me";
+import HomePage from "./components/HomePage";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
+import PairProsPage from "./components/PairProsPage";
+import MePage from "./components/MePage";
 import "./index.scss";
 
 export const AuthContext = createContext();
@@ -58,11 +58,11 @@ function App() {
           <div data-testid="container">
             <Header />
             <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/" element={<PersonList />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/me" element={<Me />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/pairpros" element={<PairProsPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/me" element={<MePage />} />
             </Routes>
           </div>
         </Router>

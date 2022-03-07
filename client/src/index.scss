@@ -1,13 +1,66 @@
-.navbar {
-  background-color: white;
-}
-
 * {
   text-align: center;
 }
 
+.home-banner-image {
+  background-image: url(./assets/banner.png);
+  background-position-x: right;
+  background-position-y: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.home-banner-text {
+  position: absolute; top: 30vh; right: 20vh; 
+  padding-left: 20vh;
+}
+
+.card {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+$theme-colors: (
+    "success": #00c2cb, 
+    "info": #5ec9cc,
+    "danger": #f9a72c,
+    "warning": #ffbd59,
+    "primary": #8c52ff,
+    "dark": #343434
+);
+
 .dark-teal {
-  background-color: teal;
+  background-color: #00c2cb;
+}
+
+.dark-teal-text {
+  color: #00c2cb;
+}
+
+.light-teal {
+  background-color: #5ec9cc;
+}
+
+.dark-orange-text {
+  color: #f9a72c;
+}
+
+.light-orange {
+  background-color: #ffbd59;
+}
+
+.purple-fill {
+  background-color:  #8c52ff;
+}
+
+.dark-grey {
+  background-color: #343434;
+}
+
+.white-text {
+  color: white;
 }
 
 @import "~bootstrap/scss/bootstrap.scss";

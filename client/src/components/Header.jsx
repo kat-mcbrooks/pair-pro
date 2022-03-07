@@ -1,34 +1,34 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../App";
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
+import LogoutButton from "./LogoutButton";
+import { useLocation } from 'react-router-dom'
 
-function Header() {
-  const { dispatch } = useContext(AuthContext);
+const Header = () => {
   const { state } = useContext(AuthContext);
-
-  const logout = () => {
-    localStorage.removeItem("userToken");
-    dispatch({
-      type: "LOGOUT",
-    });
-  };
+  const location = useLocation();
+  const bgColor = location.pathname === '/' ? 'white' : 'dark-teal'
+  const hiddenText = location.pathname === '/' ? 'white-text' : 'dark-teal-text'
+  const logoColor = location.pathname === '/' ? 'light' : 'dark'
+  const logoLink = state.isLoggedIn ? '/pairpros' : '/'
 
   return (
- 
-      <Navbar fluid='true' className='dark-teal' variant="dark">
-        <Container>
-          <Navbar.Brand href="/">PairPro</Navbar.Brand>
-          <Nav>
-            <Button variant="success" onClick={logout}>Logout</Button>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/register">Sign Up</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-
+  <Navbar fluid='true' className={bgColor} variant={logoColor}>
+    <Container>
+      <Navbar.Brand href={logoLink}>PairPro</Navbar.Brand>
+      <Nav>
+        {state.isLoggedIn ? (
+          <LogoutButton />
+          ):(
+          <>
+            <Button href="/login">Login</Button>
+            <p className={hiddenText}>....</p>
+            <Button variant='danger' href="/register">Sign Up</Button>
+          </>
+        )}
+      </Nav>
+    </Container>
+  </Navbar>
   );
 }
     

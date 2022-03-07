@@ -44,7 +44,7 @@ const Login = () => {
           // payload: res.data,
           // remember: rememberMe,
         });
-        navigate("/");
+        navigate("/pairpros");
       })
       .catch(() => {
         toast("Incorrect email or password");
