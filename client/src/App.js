@@ -22,25 +22,23 @@ const App = () => {
 
   return (
     <>
-      <Router>
-        <div data-testid="container" className="container">
-          <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/pairpros" element={<PairProsPage />} />
-            <Route
-              path="/login"
-              element={state.isLoggedIn ? <Navigate to="/me" /> : <LoginPage />}
-            ></Route>
-            <Route
-              path="/register"
-              element={
-                state.isLoggedIn ? <Navigate to="/" /> : <RegisterPage />
-              }
-            ></Route>
-            <Route path="/me" element={<MePage />}></Route>
-          </Routes>
-        </div>
+      <Router data-testid="container" className="container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/pairpros" element={<PairProsPage />} />
+          <Route
+            path="/login"
+            element={state.isLoggedIn ? <Navigate to="/me" /> : <LoginPage />}
+          ></Route>
+          <Route
+            path="/register"
+            element={
+              state.isLoggedIn ? <Navigate to="/" /> : <RegisterPage />
+            }
+          ></Route>
+          <Route path="/me" element={<MePage />}></Route>
+        </Routes>
       </Router>
       <Footer />
       <ToastContainer />
