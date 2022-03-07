@@ -12,7 +12,7 @@ import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import PairProsPage from "./components/PairProsPage";
 import MePage from "./components/MePage";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 import "./index.scss";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
@@ -29,12 +29,14 @@ const App = () => {
           <Route path="/pairpros" element={<PairProsPage />} />
           <Route
             path="/login"
-            element={state.isLoggedIn ? <Navigate to="/me" /> : <LoginPage />}
+            element={
+              state.isLoggedIn ? <Navigate to="/pairpros" /> : <LoginPage />
+            }
           ></Route>
           <Route
             path="/register"
             element={
-              state.isLoggedIn ? <Navigate to="/" /> : <RegisterPage />
+              state.isLoggedIn ? <Navigate to="/pairpros" /> : <RegisterPage />
             }
           ></Route>
           <Route path="/me" element={<MePage />}></Route>
@@ -44,6 +46,6 @@ const App = () => {
       <ToastContainer />
     </>
   );
-}
+};
 
 export default App;

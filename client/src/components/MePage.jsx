@@ -1,38 +1,38 @@
-import axios from 'axios';
-import { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { Card, Button, Row, Col, Container } from 'react-bootstrap'
-import robot from '../assets/robot.png'
+import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import robot from "../assets/robot.png";
 
 const Me = () => {
   const [me, setMe] = useState([]);
 
-  const { state } = useContext(AuthContext)
+  const { state } = useContext(AuthContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
-    state.isLoggedIn ? (
-    axios.get(`/api/users/me`)
-      .then(res => {
-        const me = res.data;
-        setMe(me);
-      })
-      .catch(() => {
-        navigate('/login')
-      })
-      ):(
-      navigate('/login')
-    )
-  }, [navigate, state.isLoggedIn])
+    state.isLoggedIn
+      ? axios
+          .get(`/api/users/me`)
+          .then((res) => {
+            const me = res.data;
+            setMe(me);
+            // navigate("/me");
+          })
+          .catch(() => {
+            // navigate('/login')
+          })
+      : navigate("/login");
+  }, [navigate, state.isLoggedIn]);
 
   return (
     <div data-testid="person-cards" className="card-container">
-      <Container fluid >
-        <Row  >
+      <Container fluid>
+        <Row>
           <Col></Col>
-          <Col xs={12} sm={10} md ={8} lg={6} xl={4}>
+          <Col xs={12} sm={10} md={8} lg={6} xl={4}>
             <Card className="me-card">
               <Card.Img variant="top" src={robot} />
               <Card.Body>
@@ -48,7 +48,7 @@ const Me = () => {
         </Row>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Me
+export default Me;
