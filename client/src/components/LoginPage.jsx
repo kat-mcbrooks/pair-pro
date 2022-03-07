@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaSignInAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { AuthContext } from "../App";
 
@@ -56,7 +55,7 @@ const Login = () => {
   <>
     <section  className='heading'>
       <h1 data-testid="login text">
-        <FaSignInAlt />Login
+        Login
       </h1>
       <p data-testid="login phrase">Log in and pair up</p>
     </section>
@@ -96,6 +95,5 @@ const Login = () => {
   </>
   )
 }
-
 
 export default Login;

@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom'
 const Header = () => {
   const { state } = useContext(AuthContext);
   const location = useLocation();
-  const bgColor = location.pathname === '/' ? 'white' : 'dark-teal'
+  const bgColor = location.pathname === '/' ? 'white-bg' : 'dark-teal-bg'
   const hiddenText = location.pathname === '/' ? 'white-text' : 'dark-teal-text'
   const logoColor = location.pathname === '/' ? 'light' : 'dark'
   const logoLink = state.isLoggedIn ? '/pairpros' : '/'
@@ -18,7 +18,11 @@ const Header = () => {
       <Navbar.Brand href={logoLink}>PairPro</Navbar.Brand>
       <Nav>
         {state.isLoggedIn ? (
-          <LogoutButton />
+          <>
+            <LogoutButton />
+            <p className={hiddenText}>....</p>
+            <Button variant='danger' href="/me">My Profile</Button>
+          </>
           ):(
           <>
             <Button href="/login">Login</Button>

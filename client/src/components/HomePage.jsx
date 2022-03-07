@@ -6,9 +6,9 @@ const Home = () => {
     <>
       <div className='home-banner-image'>
         <div className='home-banner-text'>
-          <h1 className='white-text'>PairPro</h1>
+          <h1 className='white-text varela'>PairPro</h1>
           <br></br>
-          <h3 className='dark-orange-text'>Hello, world!</h3>
+          <h3 className='dark-orange-text courier'>Hello, world!</h3>
           <h5 className='white-text'>We won't REST until you find your</h5>
           <h5 className='white-text'>IDEal Pair Programming Partner</h5>
         </div>

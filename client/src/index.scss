@@ -16,6 +16,20 @@
   padding-left: 20vh;
 }
 
+.sml-banner-image {
+  background-image: url(./assets/sml-banner.png);
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.bottom {
+  position: relative; bottom: 0%;
+}
+
 .card {
   width: 100%;
   padding-left: 30px;
@@ -31,7 +45,7 @@ $theme-colors: (
     "dark": #343434
 );
 
-.dark-teal {
+.dark-teal-bg {
   background-color: #00c2cb;
 }
 
@@ -39,28 +53,44 @@ $theme-colors: (
   color: #00c2cb;
 }
 
-.light-teal {
+.light-teal-bg {
   background-color: #5ec9cc;
+}
+
+.dark-orange-bg {
+  background-color: #f9a72c;
 }
 
 .dark-orange-text {
   color: #f9a72c;
 }
 
-.light-orange {
+.light-orange-bg {
   background-color: #ffbd59;
 }
 
-.purple-fill {
+.purple-bg {
   background-color:  #8c52ff;
 }
 
-.dark-grey {
+.dark-grey-bg {
   background-color: #343434;
+}
+
+.white-bg {
+  background-color: white;
 }
 
 .white-text {
   color: white;
+}
+
+.courier {
+  font-family: 'Courier New', Courier, monospace
+}
+
+.varela {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 @import "~bootstrap/scss/bootstrap.scss";

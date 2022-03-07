@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -29,31 +28,26 @@ const Me = () => {
   }, [navigate, state.isLoggedIn])
 
   return (
-<div data-testid="person-cards" className="card-container">
-        <Container fluid >
-          <Row  >
-            <Col></Col>
-
-
-              <Col xs={12} sm={10} md ={8} lg={6} xl={4}>
-           <Card className="me-card">
-                  <Card.Img variant="top" src={robot} />
-                  <Card.Body>
-                    <Card.Title>{me.name}</Card.Title>
-                    <Card.Text>Languages: {me.languages}</Card.Text>
-                    <Card.Text>Bio: {me.bio}</Card.Text>
-                    <Button variant="primary">Edit your Profile</Button>
-                  </Card.Body>
-                </Card>
-                <br></br>
-              </Col>
-       
-            <Col></Col>
-          </Row>
-        </Container>
-      </div>
-   
-
+    <div data-testid="person-cards" className="card-container">
+      <Container fluid >
+        <Row  >
+          <Col></Col>
+          <Col xs={12} sm={10} md ={8} lg={6} xl={4}>
+            <Card className="me-card">
+              <Card.Img variant="top" src={robot} />
+              <Card.Body>
+                <Card.Title>{me.name}</Card.Title>
+                <Card.Text>Languages: {me.languages}</Card.Text>
+                <Card.Text>Bio: {me.bio}</Card.Text>
+                <Button variant="primary">Edit your Profile</Button>
+              </Card.Body>
+            </Card>
+            <br></br>
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
+    </div>
   )
 }
 
