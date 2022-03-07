@@ -1,5 +1,9 @@
-import { createContext, useEffect, useReducer } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
@@ -10,57 +14,37 @@ import PairProsPage from "./components/PairProsPage";
 import MePage from "./components/MePage";
 import Footer from "./components/Footer"
 import "./index.scss";
-
-export const AuthContext = createContext();
-const initialState = {
-  isLoggedIn: localStorage.getItem("userToken") ? true : false,
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "LOGIN":
-      return {
-        ...state,
-        isLoggedIn: true,
-      };
-    case "LOGOUT":
-      return {
-        ...state,
-        isLoggedIn: false,
-      };
-    default:
-      return state;
-  }
-};
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  useEffect(() => {
-    return () => {};
-  }, [state.isLoggedIn]);
+  const { state } = useContext(AuthContext);
 
   return (
-
-    <AuthContext.Provider value={{ state, dispatch }}>
-      <>
-        <Router>
-          <div data-testid="container">
-            <Header />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/pairpros" element={<PairProsPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/me" element={<MePage />} />
-            </Routes>
-            <Footer />
-          </div>
-        </Router>
-        <ToastContainer />
-      </>
-    </AuthContext.Provider>
-
+    <>
+      <Router>
+        <div data-testid="container" className="container">
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/pairpros" element={<PairProsPage />} />
+            <Route
+              path="/login"
+              element={state.isLoggedIn ? <Navigate to="/me" /> : <LoginPage />}
+            ></Route>
+            <Route
+              path="/register"
+              element={
+                state.isLoggedIn ? <Navigate to="/" /> : <RegisterPage />
+              }
+            ></Route>
+            <Route path="/me" element={<MePage />}></Route>
+          </Routes>
+        </div>
+      </Router>
+      <Footer />
+      <ToastContainer />
+    </>
   );
 }
 

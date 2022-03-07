@@ -1,8 +1,7 @@
-import axios from "axios";
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { AuthContext } from "../App";
+import { AuthContext } from "../context/AuthContext";
+import { registerCall } from "../apiCalls";
 
 const Register = () => {
   const { dispatch } = useContext(AuthContext);
@@ -18,8 +17,6 @@ const Register = () => {
 
   const { name, email, password, password2, languages, bio } = formData;
 
-  const navigate = useNavigate();
-
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -29,7 +26,6 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     if (password !== password2) {
       toast.error("Passwords do not match");
     } else {
@@ -40,35 +36,23 @@ const Register = () => {
         languages,
         bio,
       };
-      axios.post(`http://localhost:5000/api/users/`, userData).then((res) => {
-        console.log(res.data.token);
-        localStorage.setItem("userToken", res.data.token);
-        dispatch({
-          type: "LOGIN",
-          // payload: res.data,
-          // remember: rememberMe,
-        });
-        navigate("/pairpros").catch(() => {
-          toast("WRONG");
-        });
-      });
+      registerCall(userData, dispatch); //calls api in separate file
     }
   };
 
-  const [ nameValue ] = useState()
-  const [ emailValue ] = useState()
-  const [ passwordValue ] = useState()
-  const [ confirmpasswordValue ] = useState()
-  const [ languagesValue ] = useState()
-  const [ bioValue ] = useState()
+  const [nameValue] = useState();
+  const [emailValue] = useState();
+  const [passwordValue] = useState();
+  const [confirmpasswordValue] = useState();
+  const [languagesValue] = useState();
+  const [bioValue] = useState();
 
   return (
-
   <>
     <div className='sml-banner-image'>
       <div className="white-bg dark-teal-text full-width">
-        <h1 className="purple-text">Sign Up Here</h1>
-        <h3 className="dark-teal-text courier">You'll be Pair Programming in no time!</h3>
+        <h1 className="purple-text" data-testid="register text">Sign Up Here</h1>
+        <h3 className="dark-teal-text courier" data-testid="register phrase">You'll be Pair Programming in no time!</h3>
       </div>
     </div>
 

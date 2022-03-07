@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { AuthContext } from "../App";
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 import LogoutButton from "./LogoutButton";
 import { useLocation } from 'react-router-dom'
+import { AuthContext } from "../context/AuthContext";
 
 const Header = () => {
   const { state } = useContext(AuthContext);
   const location = useLocation();
+  
   const bgColor = location.pathname === '/' ? 'white-bg' : 'dark-teal-bg'
   const hiddenText = location.pathname === '/' ? 'white-text' : 'dark-teal-text'
   const logoColor = location.pathname === '/' ? 'light' : 'dark'
