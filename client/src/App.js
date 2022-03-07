@@ -41,7 +41,10 @@ const App = () => {
             }
           ></Route>
           <Route path="/me" element={<MePage />}></Route>
-          <Route path="/chat" element={<ChatPage />}></Route>
+          <Route
+            path="/chat"
+            element={state.isLoggedIn ? <ChatPage /> : <Navigate to="/login" />}
+          ></Route>
         </Routes>
       </Router>
       <Footer />

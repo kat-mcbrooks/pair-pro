@@ -4,6 +4,7 @@ import reducer from "./AuthReducer";
 // set the initial state, which will be passed to the useReducer hook.
 const initialState = {
   isLoggedIn: localStorage.getItem("userToken") ? true : false,
+  user: localStorage.getItem("user") ? localStorage.getItem("user") : null,
   isFetching: false,
   error: false,
 };
@@ -18,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
   // if the context value of the AuthContext.Provider(see app.js) changes, any component that calls the useContext will be rerendered with the latest value in the context provider.
   useEffect(() => {
     return () => {};
-    //localStorage.setItem("user", JSON.stringify(state.user));
+    localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.isLoggedIn]);
 
   return (
