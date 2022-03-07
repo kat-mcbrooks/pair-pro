@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 const ChatPage = () => {
   return (
@@ -7,7 +8,10 @@ const ChatPage = () => {
       <h1>Chat Page</h1>
       <Container>
         <Row>
-          <Col>conversation</Col>
+          <Col>
+            conversations
+       
+          </Col>
           <Col>messages</Col>
         </Row>
       </Container>

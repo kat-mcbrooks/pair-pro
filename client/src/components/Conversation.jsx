@@ -24,3 +24,5 @@ const Conversation = ({ conversation, currentUser }) => {
     </div>
   );
 };
+
+export default Conversation;
