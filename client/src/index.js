@@ -3,15 +3,19 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import axios from 'axios';
+import axios from "axios";
+import { AuthContextProvider } from "./context/AuthContext";
 
-
-axios.defaults.baseURL = 'http://localhost:5000';
-axios.defaults.headers.common['Authorization'] = localStorage.userToken ? `Bearer ${localStorage.userToken}` : null ;
+axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.headers.common["Authorization"] = localStorage.userToken
+  ? `Bearer ${localStorage.userToken}`
+  : null;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
