@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   // read authcontext value from the context object using useContext Hook in the component that needs the authcontext value(in our case, Header)
-
   const { dispatch } = useContext(AuthContext);
   const { state } = useContext(AuthContext);
   const navigate = useNavigate();

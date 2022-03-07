@@ -8,7 +8,7 @@ export const loginCall = async (userCredentials, dispatch) => {
     const res = await axios.post("/api/users/login", userCredentials);
     localStorage.setItem("userToken", res.data.token);
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-    <Navigate to="/me" replace={true} />;
+    <Navigate to="/home" replace={true} />;
   } catch (err) {
     toast("Incorrect email or password");
     dispatch({ type: "LOGIN_FAILURE", payload: err });
@@ -22,10 +22,10 @@ export const registerCall = async (userCredentials, dispatch) => {
       `http://localhost:5000/api/users/`,
       userCredentials
     );
-    console.log(res.data.token);
+    console.log(res.data);
     localStorage.setItem("userToken", res.data.token);
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-    <Navigate to="/" replace={true} />;
+    <Navigate to="/" replace={true} />; //this doesn't seem to take precedenc over the redirect in the app.js
   } catch (err) {
     toast("something is wrong");
     dispatch({ type: "LOGIN_FAILURE", payload: err });

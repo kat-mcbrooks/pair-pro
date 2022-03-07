@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { loginCall } from "../apiCalls";
 
 const Login = () => {
-  const { isFetching, dispatch } = useContext(AuthContext);
+  const { isFetching, dispatch, state } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     email: "",

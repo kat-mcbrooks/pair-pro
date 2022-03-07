@@ -36,10 +36,7 @@ function App() {
                 state.isLoggedIn ? <Navigate to="/home" /> : <Register />
               }
             ></Route>
-            <Route
-              path="/me"
-              element={state.isLoggedin ? <Me /> : <Navigate to="/home" />}
-            ></Route>
+            <Route path="/me" element={<Me />}></Route>
           </Routes>
         </div>
       </Router>

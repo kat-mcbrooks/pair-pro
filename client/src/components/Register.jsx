@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
@@ -7,6 +6,7 @@ import { registerCall } from "../apiCalls";
 
 const Register = () => {
   const { dispatch } = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -19,8 +19,6 @@ const Register = () => {
 
   const { name, email, password, password2, languages, bio } = formData;
 
-  const navigate = useNavigate();
-
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -30,7 +28,6 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     if (password !== password2) {
       toast.error("Passwords do not match");
     } else {
@@ -51,7 +48,7 @@ const Register = () => {
   const [confirmpasswordValue] = useState();
   const [languagesValue] = useState();
   const [bioValue] = useState();
-  console.log("register page");
+
   return (
     <>
       <section className="heading">
