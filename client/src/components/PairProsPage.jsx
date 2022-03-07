@@ -32,7 +32,7 @@ const PersonList = () => {
                     <Card.Title>{person.name}</Card.Title>
                     <Card.Text>Languages: {person.languages}</Card.Text>
                     <Card.Text>Bio: {person.bio}</Card.Text>
-                    <Button variant="primary">{`Chat to ${person.name}`}</Button>
+                    <Button variant="primary" href="/chat">{`Chat to ${person.name}`}</Button>
                   </Card.Body>
                 </Card>
                 <br></br>

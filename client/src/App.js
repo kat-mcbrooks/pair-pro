@@ -12,6 +12,7 @@ import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import PairProsPage from "./components/PairProsPage";
 import MePage from "./components/MePage";
+import ChatPage from "./components/ChatPage";
 import Footer from "./components/Footer";
 import "./index.scss";
 import { useContext } from "react";
@@ -40,6 +41,7 @@ const App = () => {
             }
           ></Route>
           <Route path="/me" element={<MePage />}></Route>
+          <Route path="/chat" element={<ChatPage />}></Route>
         </Routes>
       </Router>
       <Footer />
