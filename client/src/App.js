@@ -7,15 +7,17 @@ import {
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import PersonList from "./components/PersonList";
-import Me from "./components/Me";
+import HomePage from "./components/HomePage";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
+import PairProsPage from "./components/PairProsPage";
+import MePage from "./components/MePage";
+import Footer from "./components/Footer"
+import "./index.scss";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
-function App() {
+const App = () => {
   const { state } = useContext(AuthContext);
 
   return (
@@ -24,22 +26,23 @@ function App() {
         <div data-testid="container" className="container">
           <Header />
           <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/" element={<PersonList />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/pairpros" element={<PairProsPage />} />
             <Route
               path="/login"
-              element={state.isLoggedIn ? <Navigate to="/me" /> : <Login />}
+              element={state.isLoggedIn ? <Navigate to="/me" /> : <LoginPage />}
             ></Route>
             <Route
               path="/register"
               element={
-                state.isLoggedIn ? <Navigate to="/home" /> : <Register />
+                state.isLoggedIn ? <Navigate to="/" /> : <RegisterPage />
               }
             ></Route>
-            <Route path="/me" element={<Me />}></Route>
+            <Route path="/me" element={<MePage />}></Route>
           </Routes>
         </div>
       </Router>
+      <Footer />
       <ToastContainer />
     </>
   );

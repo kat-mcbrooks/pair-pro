@@ -19,7 +19,7 @@ export const registerCall = async (userCredentials, dispatch) => {
   dispatch({ type: "LOGIN_START" });
   try {
     const res = await axios.post(
-      `http://localhost:5000/api/users/`,
+      `/api/users/`,
       userCredentials
     );
     console.log(res.data);

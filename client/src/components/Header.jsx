@@ -1,51 +1,40 @@
 import { useContext } from "react";
+import { Navbar, Container, Nav, Button } from 'react-bootstrap'
+import LogoutButton from "./LogoutButton";
+import { useLocation } from 'react-router-dom'
 import { AuthContext } from "../context/AuthContext";
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
 
-function Header() {
-  // read authcontext value from the context object using useContext Hook in the component that needs the authcontext value(in our case, Header)
-  const { dispatch } = useContext(AuthContext);
+const Header = () => {
   const { state } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const logout = () => {
-    localStorage.removeItem("userToken");
-    dispatch({
-      type: "LOGOUT",
-    });
-    navigate("/home");
-  };
+  const location = useLocation();
+  
+  const bgColor = location.pathname === '/' ? 'white-bg' : 'dark-teal-bg'
+  const hiddenText = location.pathname === '/' ? 'white-text' : 'dark-teal-text'
+  const logoColor = location.pathname === '/' ? 'light' : 'dark'
+  const logoLink = state.isLoggedIn ? '/pairpros' : '/'
 
   return (
-    <header data-testid="nav" className="header">
-      <div className="logo">
-        <Link to="/">PairPro</Link>
-      </div>
-      <ul>
+  <Navbar fluid='true' className={bgColor} variant={logoColor}>
+    <Container>
+      <Navbar.Brand href={logoLink}>PairPro</Navbar.Brand>
+      <Nav>
         {state.isLoggedIn ? (
-          <li>
-            <button className="btn" onClick={logout}>
-              <FaSignOutAlt /> Logout
-            </button>
-          </li>
-        ) : (
           <>
-            <li>
-              <Link to="/login">
-                <FaSignInAlt /> Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/register">
-                <FaUser /> Register
-              </Link>
-            </li>
+            <LogoutButton />
+            <p className={hiddenText}>....</p>
+            <Button variant='danger' href="/me">My Profile</Button>
+          </>
+          ):(
+          <>
+            <Button href="/login">Login</Button>
+            <p className={hiddenText}>....</p>
+            <Button variant='danger' href="/register">Sign Up</Button>
           </>
         )}
-      </ul>
-    </header>
+      </Nav>
+    </Container>
+  </Navbar>
   );
 }
-
+    
 export default Header;
