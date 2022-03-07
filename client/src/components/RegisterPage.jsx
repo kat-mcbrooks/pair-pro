@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../App";
 
 const Register = () => {
@@ -66,12 +65,12 @@ const Register = () => {
   return (
 
   <>
-    <section className='heading'>
-      <h1 data-testid="register text">
-        <FaUser  />Register
-      </h1>
-      <p data-testid="register phrase">Please create an account</p>
-    </section>
+    <div className='sml-banner-image'>
+      <div className="white-bg dark-teal-text full-width">
+        <h1 className="purple-text">Sign Up Here</h1>
+        <h3 className="dark-teal-text courier">You'll be Pair Programming in no time!</h3>
+      </div>
+    </div>
 
     <section className='form'>
       <form onSubmit ={onSubmit}>

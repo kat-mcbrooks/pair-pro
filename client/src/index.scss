@@ -26,10 +26,6 @@
   margin-bottom: 30px;
 }
 
-.bottom {
-  position: relative; bottom: 0%;
-}
-
 .card {
   width: 100%;
   padding-left: 30px;
@@ -72,6 +68,11 @@ $theme-colors: (
 .purple-bg {
   background-color:  #8c52ff;
 }
+
+.purple-text {
+  color:  #8c52ff;
+}
+
 
 .dark-grey-bg {
   background-color: #343434;
