@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
+import { useParams } from 'react-router-dom'
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import Conversation from "./Conversation";
@@ -7,6 +8,7 @@ import Message from "./Message";
 
 const ChatPage = () => {
   const { state } = useContext(AuthContext);
+  const { conversationId } = useParams();
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -24,6 +26,11 @@ const ChatPage = () => {
     getConversations();
   }, [state.user._id]);
 
+  useEffect(()=> {
+    const chat = conversations.find((c) => {return c._id === conversationId});
+    setCurrentChat(chat);
+  }, [state.user._id, conversations, conversationId])
+
   useEffect(() => {
     const getMessages = async () => {
       try {
@@ -32,7 +39,7 @@ const ChatPage = () => {
       } catch (err) {
         console.log(err);
       }
-    }    
+    }
     getMessages();
   }, [currentChat]);
 

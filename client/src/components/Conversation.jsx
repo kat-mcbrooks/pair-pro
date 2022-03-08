@@ -2,15 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
-const Conversation = ({ conversation, currentUser }) => {
+const Conversation = ({ conversation, currentUser, isCurrent }) => {
   const [user, setUser] = useState(null);
+  const color = isCurrent ? 'danger' : 'info'
 
   useEffect(() => {
     const friendId = conversation.members.find((m) => m !== currentUser._id);
 
     const getUser = async () => {
       try {
-        const res = await axios(`/api/users/find/${friendId}`);
+        const res = await axios(`/api/users/${friendId}`);
         setUser(res.data);
       } catch (err) {
         console.log(err);
@@ -21,7 +22,7 @@ const Conversation = ({ conversation, currentUser }) => {
 
   return (
     <div className="conversation">
-      <Button className="conversationName" variant="info">{user?.name}</Button>
+      <Button className="conversationName" variant={color}>{user?.name}</Button>
       <br></br>
     </div>
   );

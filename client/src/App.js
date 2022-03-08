@@ -45,6 +45,10 @@ const App = () => {
             path="/chat"
             element={state.isLoggedIn ? <ChatPage /> : <Navigate to="/login" />}
           ></Route>
+           <Route
+            path="/chat/:conversationId"
+            element={state.isLoggedIn ? <ChatPage /> : <Navigate to="/login" />}
+          ></Route>
         </Routes>
       </Router>
       <Footer />

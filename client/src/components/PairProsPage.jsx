@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import { Card, Row, Col, Container } from "react-bootstrap";
 import robot from '../assets/robot.png'
+import ChatToButton from "./ChatToButton";
 
 const PersonList = () => {
   const [persons, setPersons] = useState([]);
@@ -33,7 +34,7 @@ const PersonList = () => {
                     <Card.Title>{person.name}</Card.Title>
                     <Card.Text>Languages: {person.languages}</Card.Text>
                     <Card.Text>Bio: {person.bio}</Card.Text>
-                    <Button variant="primary" href="/chat">{`Chat to ${person.name}`}</Button>
+                    <ChatToButton receiver={person} />
                   </Card.Body>
                 </Card>
                 <br></br>
