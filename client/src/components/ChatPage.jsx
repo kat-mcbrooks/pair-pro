@@ -1,30 +1,29 @@
 import axios from "axios";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import Conversation from "./Conversation";
 import Message from "./Message";
 import { io } from "socket.io-client";
 
-
-
 const ChatPage = () => {
-  const { state } = useContext(AuthContext);
+  const { state } = useContext(AuthContext); //so we can
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const [socket, setSocket] = useState(null)
+  const socket = useRef(io("ws://localhost:8900"));
 
   useEffect(() => {
-    setSocket(io("ws://localhost:8900"))
-  }, [])
+    socket.current = io("ws://localhost:8900");
+  }, []);
 
   useEffect(() => {
-    socket?.on("welcome", message=>{
-      console.log(message)
-    })
-  }, [socket])
+    socket.current.emit("addUser", state.user._id);
+    socket.current.on("getUsers", (users) => {
+      console.log(users);
+    });
+  }, [state.user]);
 
   useEffect(() => {
     const getConversations = async () => {
@@ -34,7 +33,7 @@ const ChatPage = () => {
       } catch (err) {
         console.log(err);
       }
-    }    
+    };
     getConversations();
   }, [state.user._id]);
 
@@ -46,7 +45,7 @@ const ChatPage = () => {
       } catch (err) {
         console.log(err);
       }
-    }    
+    };
     getMessages();
   }, [currentChat]);
 
@@ -75,20 +74,28 @@ const ChatPage = () => {
           <Col sm={4}>
             {conversations.map((conversation) => (
               <div onClick={() => setCurrentChat(conversation)}>
-                <Conversation conversation={conversation} currentUser={state.user} />
+                <Conversation
+                  conversation={conversation}
+                  currentUser={state.user}
+                />
               </div>
             ))}
           </Col>
           <Col sm={8}>
             {messages.map((message) => (
-              <Message message={message} own={state.user._id === message.senderId} />
+              <Message
+                message={message}
+                own={state.user._id === message.senderId}
+              />
             ))}
-             <div className="form-container">
+            <div className="form-container">
               <Form className="message-submit">
                 <Form.Group>
-                  <Form.Control as="textarea" rows={3}   
-                    onChange={(e) => setNewMessage(e.target.value)} 
-                    value={newMessage} 
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    onChange={(e) => setNewMessage(e.target.value)}
+                    value={newMessage}
                   />
                   <Button onClick={handleSubmit} type="submit">
                     Submit

@@ -1,11 +1,34 @@
 const io = require("socket.io")(8900, {
-    cors: {
-      origin: "http://localhost:3000",
-    },
+  cors: {
+    origin: "http://localhost:3000",
+  },
+});
+
+let users = [];
+
+const addUser = (userId, socketId) => {
+  !users.some((user) => user.userId === userId) &&
+    users.push({ userId, socketId });
+};
+
+const removeUser = (socketId) => {
+  users = users.filter((user) => user.socketId !== socketId);
+};
+
+io.on("connection", (socket) => {
+  //when ceonnect
+  console.log("a user connected.");
+  socket.on("addUser", (userId) => {
+    addUser(userId, socket.id);
+    io.emit("getUsers", users);
   });
 
-  io.on("connection", (socket) => {
-    //when ceonnect
-    console.log("a user connected.");
-    io.emit("welcome", "this is a socket server")});
-  
+  //take user id and socket id from user
+  //disconnection
+  socket.on("discconnect", () => {
+    console.log("user has disconnect");
+    removeUser(socket.id);
+    io.emit("getUsers", users);
+  });
+});
+// io.to(si)("welcome", "this is a socket server")});
