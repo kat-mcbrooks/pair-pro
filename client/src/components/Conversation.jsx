@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 
 const Conversation = ({ conversation, currentUser }) => {
   const [user, setUser] = useState(null);
@@ -9,7 +10,7 @@ const Conversation = ({ conversation, currentUser }) => {
 
     const getUser = async () => {
       try {
-        const res = await axios("/users?userId=" + friendId);
+        const res = await axios(`/api/users/find/${friendId}`);
         setUser(res.data);
       } catch (err) {
         console.log(err);
@@ -20,7 +21,8 @@ const Conversation = ({ conversation, currentUser }) => {
 
   return (
     <div className="conversation">
-      <span className="conversationName">{user?.name}</span>
+      <Button className="conversationName" variant="danger">{user?.name}</Button>
+      <br></br>
     </div>
   );
 };

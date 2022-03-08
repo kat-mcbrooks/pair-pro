@@ -8,10 +8,11 @@ const PersonList = () => {
   const [persons, setPersons] = useState([]);
 
   useEffect(() => {
-    axios.get(`/api/users/`).then((res) => {
-      const persons = res.data;
-      setPersons(persons);
-    });
+    axios.get(`/api/users/`)
+      .then((res) => {
+        const persons = res.data;
+        setPersons(persons);
+      });
   }, []);
 
   return (
