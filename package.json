@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",
-    "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd ./client && yarn --cwd ./client run build",
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd ./client && yarn --cwd ./socket && yarn --cwd ./client run build",
     "server": "nodemon server/server.js",
     "client": "yarn --cwd ./client run start",
     "socket": "yarn --cwd ./socket run start",
