@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, usEffect } from "react";
+import { useState, useEffect } from "react";
 import { Card, Row, Col, Container } from "react-bootstrap";
 import ChatToButton from "./ChatToButton";
 import robot from "../assets/robot.png";

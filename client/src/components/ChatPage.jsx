@@ -22,7 +22,7 @@ const ChatPage = () => {
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
-        text: data.textId,
+        messageBody: data.messageBody,
         createdAt: Date.now(),
       });
     });
@@ -81,12 +81,13 @@ const ChatPage = () => {
     const receiverId = currentChat.members.find(
       (member) => member !== state.user._id
     );
+
     console.log("in the message submit function");
     console.log(receiverId);
     socket.current.emit("sendMessage", {
       senderId: state.user._id,
       receiverId: receiverId,
-      messageBody: newMessage,
+      messageBody: newMessage
     });
 
     try {
