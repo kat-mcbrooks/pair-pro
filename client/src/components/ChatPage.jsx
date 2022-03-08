@@ -4,6 +4,9 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import Conversation from "./Conversation";
 import Message from "./Message";
+import { io } from "socket.io-client";
+
+
 
 const ChatPage = () => {
   const { state } = useContext(AuthContext);
@@ -11,6 +14,17 @@ const ChatPage = () => {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+  const [socket, setSocket] = useState(null)
+
+  useEffect(() => {
+    setSocket(io("ws://localhost:8900"))
+  }, [])
+
+  useEffect(() => {
+    socket?.on("welcome", message=>{
+      console.log(message)
+    })
+  }, [socket])
 
   useEffect(() => {
     const getConversations = async () => {
