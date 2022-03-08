@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useParams } from 'react-router-dom'
 import { useEffect, useState, useContext, useRef } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Card, Row, Col, Form, Button } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import Conversation from "./Conversation";
 import Message from "./Message";
@@ -99,19 +99,27 @@ const ChatPage = () => {
     }
   };
 
+  const chatBackground = (conversation) => {
+    return conversation === currentChat ? "primary" : "warning"
+  }
   return (
     <>
       <h1>Chat Page</h1>
-      <Container>
+  
         <Row>
           <Col sm={4}>
             {conversations.map((conversation) => (
-              <div onClick={() => setCurrentChat(conversation)}>
-                <Conversation
-                  conversation={conversation}
-                  currentUser={state.user}
-                />
-              </div>
+              <> 
+                <Card 
+                  onClick={() => setCurrentChat(conversation)} bg={chatBackground(conversation)} 
+                  style={{ cursor: "pointer" }}
+                >
+                  <Conversation
+                    conversation={conversation}
+                    currentUser={state.user}
+                  />
+                </Card>
+              </>
             ))}
           </Col>
           <Col sm={8}>
@@ -138,7 +146,7 @@ const ChatPage = () => {
             </div>
           </Col>
         </Row>
-      </Container>
+
     </>
   );
 };
