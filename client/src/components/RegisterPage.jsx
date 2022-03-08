@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 import { registerCall } from "../apiCalls";
+import FileBase64 from 'react-file-base64';
+
 
 const Register = () => {
   const { dispatch } = useContext(AuthContext);
@@ -49,7 +51,7 @@ const Register = () => {
   const [confirmpasswordValue] = useState();
   const [languagesValue] = useState();
   const [bioValue] = useState();
-  const [imageValue] = useState();
+  // const [imageValue] = useState(); 
 
   return (
     <>
@@ -133,16 +135,11 @@ const Register = () => {
             />
           </div>
           <div data-testid="image" className="image">
-            <input
-              type="file"
-              className="image"
-              id="image"
-              name="image"
-              value={imageValue}
-              placeholder="Upload a picture of your lovely self"
-              onChange={onChange}
-              enctype="multipart/form-data"
-            />
+          <FileBase64
+            type="file"
+            multiple={false}
+            onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}
+          />
           </div>
           <div data-testid="add-btn" className="form-group">
             <button type="submit" className="btn btn-block">

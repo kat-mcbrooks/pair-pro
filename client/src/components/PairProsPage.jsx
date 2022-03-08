@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
-import robot from '../assets/robot.png'
+
 
 const PersonList = () => {
   const [persons, setPersons] = useState([]);
@@ -27,7 +27,7 @@ const PersonList = () => {
             {persons.map((person) => (
               <Col>
                 <Card className="card">
-                  <Card.Img variant="top" src={robot} />
+                  <Card.Img src={person.image} alt="profile picture"/>
                   <Card.Body>
                     <Card.Title>{person.name}</Card.Title>
                     <Card.Text>Languages: {person.languages}</Card.Text>

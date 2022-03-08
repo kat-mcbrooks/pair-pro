@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
-import robot from "../assets/robot.png";
 
 const Me = () => {
   const [me, setMe] = useState([]);
