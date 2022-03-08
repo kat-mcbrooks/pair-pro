@@ -105,14 +105,14 @@ const ChatPage = () => {
   return (
     <>
       <h1>Chat Page</h1>
-  
-        <Row>
+        <Row className="height-90vh">
           <Col sm={4}>
             {conversations.map((conversation) => (
               <> 
                 <Card 
                   onClick={() => setCurrentChat(conversation)} bg={chatBackground(conversation)} 
                   style={{ cursor: "pointer" }}
+                  className="text-right"
                 >
                   <Conversation
                     conversation={conversation}
@@ -146,7 +146,6 @@ const ChatPage = () => {
             </div>
           </Col>
         </Row>
-
     </>
   );
 };

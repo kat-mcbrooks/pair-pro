@@ -1,5 +1,9 @@
-* {
+.text-center, h1, h2, h3, h4, h5, h6 {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .home-banner-image {
@@ -17,7 +21,7 @@
 }
 
 .sml-banner-image {
-  background-image: url(./assets/sml-banner.png);
+  background-image: url(./assets/sml-banner-dark-teal.png);
   background-position-x: center;
   background-position-y: top;
   background-size: cover;
@@ -28,6 +32,10 @@
 
 .card {
   width: 100%;
+}
+
+.height-90vh {
+  min-height: 100vh;
 }
 
 $theme-colors: (

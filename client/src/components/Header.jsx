@@ -12,9 +12,10 @@ const Header = () => {
   const hiddenText = location.pathname === '/' ? 'white-text' : 'dark-teal-text'
   const logoColor = location.pathname === '/' ? 'light' : 'dark'
   const logoLink = state.isLoggedIn ? '/pairpros' : '/'
+  const sticky = location.pathname === '/' ? 'top' : false
 
   return (
-  <Navbar fluid='true' className={bgColor} variant={logoColor}>
+  <Navbar fluid='true' className={bgColor} variant={logoColor} sticky={sticky}>
     <Container>
       <Navbar.Brand href={logoLink}>PairPro</Navbar.Brand>
       <Nav>
