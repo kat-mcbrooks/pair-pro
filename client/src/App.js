@@ -12,6 +12,7 @@ import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import PairProsPage from "./components/PairProsPage";
 import MePage from "./components/MePage";
+import ChatPage from "./components/ChatPage";
 import Footer from "./components/Footer";
 import "./index.scss";
 import { useContext } from "react";
@@ -40,6 +41,14 @@ const App = () => {
             }
           ></Route>
           <Route path="/me" element={<MePage />}></Route>
+          <Route
+            path="/chat"
+            element={state.isLoggedIn ? <ChatPage /> : <Navigate to="/login" />}
+          ></Route>
+           <Route
+            path="/chat/:conversationId"
+            element={state.isLoggedIn ? <ChatPage /> : <Navigate to="/login" />}
+          ></Route>
         </Routes>
       </Router>
       <Footer />

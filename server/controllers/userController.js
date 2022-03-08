@@ -73,10 +73,23 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 })
 
-// Get User Data || route: GET /api/users/me || access: Private
+// Get Logged in User's Data || route: GET /api/users/me || access: Private
 const getMe = asyncHandler(async (req, res) => {
   const { _id, name, email, languages, bio } = await User.findById(req.user.id)
   // req.user is set in authMiddleware
+
+  res.status(200).json({
+    id: _id,
+    name,
+    email,
+    languages,
+    bio
+  })
+})
+
+// Find a Specific User's Data || route: GET /api/users/:userId || access: Public
+const findUser = asyncHandler(async (req, res) => {
+  const { _id, name, email, languages, bio } = await User.findById(req.params.id)
 
   res.status(200).json({
     id: _id,
@@ -99,5 +112,6 @@ module.exports = {
   registerUser,
   loginUser,
   getMe,
+  findUser
 }
 

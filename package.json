@@ -25,6 +25,9 @@
     "nodemon": "^2.0.15"
   },
   "engines": {
-    "node": "17.x"
-  }
+    "node": ">=15.0.0 <17.6.0"
+    
+  },
+  "repository": "https://github.com/hannahdesmond/pair-pro.git",
+  "author": "Vanessa Florio <vanessaflorio1997@gmail.com>"
 }
