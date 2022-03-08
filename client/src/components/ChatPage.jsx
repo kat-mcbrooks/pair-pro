@@ -76,7 +76,7 @@ const ChatPage = () => {
                     onChange={(e) => setNewMessage(e.target.value)} 
                     value={newMessage} 
                   />
-                  <Button onClick={handleSubmit} variant="primary" type="submit">
+                  <Button onClick={handleSubmit} type="submit">
                     Submit
                   </Button>
                 </Form.Group>

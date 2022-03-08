@@ -21,7 +21,7 @@ const Conversation = ({ conversation, currentUser }) => {
 
   return (
     <div className="conversation">
-      <Button className="conversationName" variant="danger">{user?.name}</Button>
+      <Button className="conversationName" variant="info">{user?.name}</Button>
       <br></br>
     </div>
   );
