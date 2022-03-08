@@ -3,7 +3,7 @@ const Conversation = require("../models/conversationModel");
 
 const postConversation = asyncHandler(async (req, res) => {
   const newConversation = new Conversation({
-    members: [req.body.senderId, req.body.receiverId],
+    members: [req.body.senderId, req.body.receiverId]
   });
 
   const savedConversation = await newConversation.save();
@@ -31,8 +31,3 @@ module.exports = {
   getConversations,
   findConversation,
 };
-
-// Routes:
-// conversationRouter.post('/', postConversation)
-// conversationRouter.get('/:userId', getConversations)
-// conversationRouter.get('/find/:firstUserId/:secondUserId', findConversation)

@@ -18,7 +18,12 @@ const ChatPage = () => {
     const getConversations = async () => {
       try {
         const res = await axios.get(`/api/conversations/${state.user._id}`);
-        setConversations(res.data);
+        console.log(res.data)
+        const orderedConversations = (res.data).sort(function (a, b) { 
+          return b.updatedAt - a.updatedAt;
+        })
+        console.log(orderedConversations)
+        setConversations(orderedConversations);
       } catch (err) {
         console.log(err);
       }
