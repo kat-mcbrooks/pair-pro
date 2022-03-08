@@ -4,7 +4,9 @@ import reducer from "./AuthReducer";
 // set the initial state, which will be passed to the useReducer hook.
 const initialState = {
   isLoggedIn: localStorage.getItem("userToken") ? true : false,
-  user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null,
+  user: localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null,
   isFetching: false,
   error: false,
 };
