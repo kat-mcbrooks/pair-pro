@@ -141,6 +141,7 @@ const Register = () => {
               value={imageValue}
               placeholder="Upload a picture of your lovely self"
               onChange={onChange}
+              enctype="multipart/form-data"
             />
           </div>
           <div data-testid="add-btn" className="form-group">

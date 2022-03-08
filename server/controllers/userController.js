@@ -12,9 +12,9 @@ const getUsers = asyncHandler(async (req, res) => {
 
 // Register new user || route: POST /api/users || access: Public 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, languages, bio } = req.body
+  const { name, email, password, languages, bio, image } = req.body
 
-  if(!name || !email || !password || !languages || !bio) {
+  if(!name || !email || !password || !languages || !bio || !image )  {
     res.status(400)
     throw new Error('Please complete all fields')
   }
@@ -37,7 +37,8 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password: hashedPassword,
     languages,
-    bio
+    bio,
+    image
   })
 
   if(user) {
@@ -75,7 +76,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // Get User Data || route: GET /api/users/me || access: Private
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, name, email, languages, bio } = await User.findById(req.user.id)
+  const { _id, name, email, languages, bio, image } = await User.findById(req.user.id)
   // req.user is set in authMiddleware
 
   res.status(200).json({
@@ -83,7 +84,8 @@ const getMe = asyncHandler(async (req, res) => {
     name,
     email,
     languages,
-    bio
+    bio,
+    image
   })
 })
 

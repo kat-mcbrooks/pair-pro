@@ -16,6 +16,20 @@ import Footer from "./components/Footer";
 import "./index.scss";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+const multer  = require('multer')
+
+
+// set up multer for storing uploaded files – this might need to go somewhere else. 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+
+var upload = multer({ storage: storage })
 
 const App = () => {
   const { state } = useContext(AuthContext);

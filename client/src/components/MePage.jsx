@@ -34,7 +34,7 @@ const Me = () => {
           <Col></Col>
           <Col xs={12} sm={10} md={8} lg={6} xl={4}>
             <Card className="me-card">
-              <Card.Img variant="top" src={robot} />
+              <Card.Img src={me.image} alt="profile picture" />
               <Card.Body>
                 <Card.Title>{me.name}</Card.Title>
                 <Card.Text>Languages: {me.languages}</Card.Text>
