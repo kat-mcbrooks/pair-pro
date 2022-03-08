@@ -9,7 +9,7 @@
     "server": "nodemon server/server.js",
     "client": "yarn --cwd ./client run start",
     "socket": "yarn --cwd ./socket run start",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+    "dev": "concurrently \"yarn run server\" \"yarn run client\" \"yarn run socket\""
   },
   "license": "MIT",
   "dependencies": {
