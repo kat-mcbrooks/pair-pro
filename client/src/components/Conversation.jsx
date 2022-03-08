@@ -2,9 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
-const Conversation = ({ conversation, currentUser, isCurrent }) => {
+const Conversation = ({ conversation, currentUser }) => {
   const [user, setUser] = useState(null);
-  const color = isCurrent ? 'danger' : 'info'
 
   useEffect(() => {
     const friendId = conversation.members.find((m) => m !== currentUser._id);
@@ -22,7 +21,7 @@ const Conversation = ({ conversation, currentUser, isCurrent }) => {
 
   return (
     <div className="conversation">
-      <Button className="conversationName" variant={color}>{user?.name}</Button>
+      <Button className="conversationName" variant="info">{user?.name}</Button>
       <br></br>
     </div>
   );
