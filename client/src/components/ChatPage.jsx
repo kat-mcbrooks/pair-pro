@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useParams } from 'react-router-dom'
 import { useEffect, useState, useContext, useRef } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
@@ -7,7 +8,8 @@ import Message from "./Message";
 import { io } from "socket.io-client";
 
 const ChatPage = () => {
-  const { state } = useContext(AuthContext); //so we can get state.user
+  const { state } = useContext(AuthContext);
+  const { conversationId } = useParams();
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -50,6 +52,11 @@ const ChatPage = () => {
     };
     getConversations();
   }, [state.user._id]);
+
+  useEffect(()=> {
+    const chat = conversations.find((c) => {return c._id === conversationId});
+    setCurrentChat(chat);
+  }, [state.user._id, conversations, conversationId])
 
   useEffect(() => {
     const getMessages = async () => {

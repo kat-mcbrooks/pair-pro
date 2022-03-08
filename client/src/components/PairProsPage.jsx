@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
-import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import { useState, usEffect } from "react";
+import { Card, Row, Col, Container } from "react-bootstrap";
+import ChatToButton from "./ChatToButton";
 import robot from "../assets/robot.png";
 
 const PersonList = () => {
@@ -32,10 +32,7 @@ const PersonList = () => {
                     <Card.Title>{person.name}</Card.Title>
                     <Card.Text>Languages: {person.languages}</Card.Text>
                     <Card.Text>Bio: {person.bio}</Card.Text>
-                    <Button
-                      variant="primary"
-                      href="/chat"
-                    >{`Chat to ${person.name}`}</Button>
+                    <ChatToButton receiver={person} />
                   </Card.Body>
                 </Card>
                 <br></br>

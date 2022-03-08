@@ -10,7 +10,7 @@ const Conversation = ({ conversation, currentUser }) => {
 
     const getUser = async () => {
       try {
-        const res = await axios(`/api/users/find/${friendId}`);
+        const res = await axios(`/api/users/${friendId}`);
         setUser(res.data);
       } catch (err) {
         console.log(err);
