@@ -15,10 +15,10 @@ const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [newMessage, setNewMessage] = useState("");
-  const socket = useRef(io("ws://pairpro22.herokuapp.com/"));
+  const socket = useRef(io("ws://localhost:8900"));
 
   useEffect(() => {
-    socket.current = io("ws://pairpro22.herokuapp.com/");
+    socket.current = io("ws://localhost:8900");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
