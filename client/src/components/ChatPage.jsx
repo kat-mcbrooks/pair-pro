@@ -7,7 +7,7 @@ import Message from "./Message";
 import { io } from "socket.io-client";
 
 const ChatPage = () => {
-  const { state } = useContext(AuthContext); //so we can
+  const { state } = useContext(AuthContext); //so we can get state.user
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -17,24 +17,25 @@ const ChatPage = () => {
 
   useEffect(() => {
     socket.current = io("ws://localhost:8900");
-    socket.current.on("getMessage", data =>{
+    socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
         text: data.textId,
-        createdAt: Date.now()
+        createdAt: Date.now(),
       });
     });
   }, []);
 
-  useEffect(()=> {
-    arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && 
-    setMessages((prev) => [...prev, arrivalMessage]);
-  },[arrivalMessage, currentChat])
+  useEffect(() => {
+    arrivalMessage &&
+      currentChat?.members.includes(arrivalMessage.sender) &&
+      setMessages((prev) => [...prev, arrivalMessage]);
+  }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
     socket.current.emit("addUser", state.user._id);
     socket.current.on("getUsers", (users) => {
-      console.log(users);
+      console.log(`chatpage useEffect ${users}`);
     });
   }, [state.user]);
 
@@ -66,16 +67,20 @@ const ChatPage = () => {
     e.preventDefault();
     const message = {
       senderId: state.user._id,
-      messageBody: newMessage,
       conversationId: currentChat._id,
+      messageBody: newMessage,
     };
 
-    const receiverId = currentChat.members.find(member=> member !==state.user._id)
+    const receiverId = currentChat.members.find(
+      (member) => member !== state.user._id
+    );
+    console.log("in the message submit function");
+    console.log(receiverId);
     socket.current.emit("sendMessage", {
       senderId: state.user._id,
-      receiverId,
-      text: newMessage
-    })
+      receiverId: receiverId,
+      messageBody: newMessage,
+    });
 
     try {
       const res = await axios.post("/api/messages", message);
@@ -85,7 +90,6 @@ const ChatPage = () => {
       console.log(err);
     }
   };
-
 
   return (
     <>
