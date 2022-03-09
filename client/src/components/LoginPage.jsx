@@ -34,9 +34,9 @@ const Login = () => {
   return (
   <>
     <div className='sml-banner-image'>
-      <div className="white-bg">
+      <div className="dark-grey-bg white-text">
         <h1 className="varela">Login</h1>
-        <h3 className="dark-teal-text courier">Welcome back to PairPro!</h3>
+        <h3 className="courier">Welcome back to PairPro!</h3>
       </div>
     </div>
     <div className="vertical-center white-bg top-10vh">
@@ -63,19 +63,13 @@ const Login = () => {
       <Form.Group cdata-testid="password input" className="form-group mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control 
-        type="password" 
-        placeholder="Password" 
-        id='password'
-        name='password'
-        value={passwordValue}
-        placeholder='Enter password' 
-        onChange={onChange}
+          type="password" 
+          id='password'
+          name='password'
+          value={passwordValue}
+          placeholder='Enter your password' 
+          onChange={onChange}
         />
-        
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          
-        <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
       <Button variant="primary" type="submit" data-testid="add-btn">
       {isFetching ? "loading" : "Log in"}

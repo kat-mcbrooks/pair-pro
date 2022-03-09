@@ -28,9 +28,9 @@ const Header = () => {
           ):(
           <>
             <Button href="/login">Login</Button>
-            <p className={hiddenText}>....</p>
+              <p className={hiddenText}>....</p>
             <Button variant='danger' href="/register">Sign Up</Button>
-          </>
+          </>      
         )}
       </Nav>
     </Container>

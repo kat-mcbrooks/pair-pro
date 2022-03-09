@@ -48,6 +48,16 @@ body {
   margin-bottom: 30px;
 }
 
+.sml-banner-image-teal {
+  background-image: url(./assets/sml-banner-dark-teal.png);
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
 .card {
   width: 100%;
 }
@@ -70,6 +80,10 @@ body {
 
 .width-90pc {
   width: 90%;
+}
+
+.width-98pc {
+  width: 98%;
 }
 
 $theme-colors: (
