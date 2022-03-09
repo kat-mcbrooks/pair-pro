@@ -45,10 +45,5 @@
   },
   "engines": {
     "node": "17.x"
-  },
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
   }
 }

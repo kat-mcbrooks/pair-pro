@@ -21,6 +21,7 @@ export const registerCall = async (userCredentials, dispatch) => {
     const res = await axios.post(`/api/users/`, userCredentials);
     // console.log(res.data);
     localStorage.setItem("userToken", res.data.token);
+    console.log(res.data.token)
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     // <Navigate to="/" replace={true} />; //this doesn't seem to take precedenc over the redirect in the app.js
   } catch (err) {
