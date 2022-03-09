@@ -19,7 +19,9 @@ const PersonList = () => {
     <>
       <div className="sml-banner-image">
         <div className="dark-grey-bg white-text full-width courier">
-          <h2>Welcome to PairPro</h2> <h4>find yourself a pair!</h4>
+          <h2> Welcome to PairPro
+          </h2> 
+          <h4>Pick a pair and let's get coding!</h4>
         </div>
       </div>
       <div data-testid="person-cards">
