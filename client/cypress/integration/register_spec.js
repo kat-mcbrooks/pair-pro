@@ -11,4 +11,8 @@ describe('register', () => {
       .should('be.visible')
       .click()      
     })
+    it('it brings user to /pairprospage path', () => {
+      cy.url()
+      .should('be.equal', 'http://localhost:3000/pairpros');
+    })
 })
