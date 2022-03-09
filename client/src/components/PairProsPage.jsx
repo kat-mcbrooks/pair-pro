@@ -27,7 +27,7 @@ const PersonList = () => {
             {persons.map((person) => (
               <Col>
                 <Card className="card">
-                  <Card.Img src={person.image.base64} alt="profile picture"/>
+                  <Card.Img variant="top" src={person.image.base64} alt="profile picture"/>
                   <Card.Body>
                     <Card.Title>{person.name}</Card.Title>
                     <Card.Text>Languages: {person.languages}</Card.Text>

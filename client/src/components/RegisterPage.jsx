@@ -51,7 +51,7 @@ const Register = () => {
   const [confirmpasswordValue] = useState();
   const [languagesValue] = useState();
   const [bioValue] = useState();
-  // const [imageValue] = useState(); 
+  const [imageValue] = useState(); 
 
   return (
     <>
@@ -139,6 +139,9 @@ const Register = () => {
             type="file"
             multiple={false}
             onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}
+            value={imageValue}
+            placeholder="Show us your lovely face"
+            onChange={onChange}
           />
           </div>
           <div data-testid="add-btn" className="form-group">
