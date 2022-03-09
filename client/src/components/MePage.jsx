@@ -3,22 +3,11 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
-import robot from "../assets/robot.png";
-import person1 from "../assets/people/1.jpeg"
-import person2 from "../assets/people/2.jpeg"
-import person3 from "../assets/people/3.jpeg"
-import person4 from "../assets/people/4.jpeg"
-import person5 from "../assets/people/5.jpeg"
-import person6 from "../assets/people/6.jpeg"
 
 const Me = () => {
   const [me, setMe] = useState([]);
   const { state } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  const people = [
-    person1, person2, person3, person4, person5, person6, robot
-  ]
 
   useEffect(() => {
     state.isLoggedIn
@@ -48,7 +37,7 @@ const Me = () => {
           <Col md={2}></Col>
           <Col md={3}>
             <Card className="me-card">
-              <Card.Img variant="top" src={people[Math.floor(Math.random()*people.length)]} />
+              <Card.Img variant="top "src={me.image} alt="profile picture" />
             </Card>
             <br></br>
           </Col>
