@@ -10,7 +10,7 @@ import person6 from "../assets/people/6.jpeg"
 
 const ProfileCardSmall = ({person}) => {
   const people = [
-    person1, person2, person3, person4, person5, person6, robot
+    person1, person2, person3, person4, person5, person6
   ]
   return (
     <Col>

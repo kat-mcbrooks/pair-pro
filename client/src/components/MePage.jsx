@@ -17,7 +17,7 @@ const Me = () => {
   const navigate = useNavigate();
 
   const people = [
-    person1, person2, person3, person4, person5, person6, robot
+    person1, person2, person3, person4, person5, person6
   ]
 
   useEffect(() => {
