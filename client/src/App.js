@@ -24,7 +24,7 @@ const App = () => {
   return (
     <>
       <Router data-testid="container" className="container">
-        <div className="height-90vh">
+        <div className="height-min90vh">
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />

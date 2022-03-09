@@ -105,7 +105,7 @@ const ChatPage = () => {
   return (
     <>
       <h1>Chat Page</h1>
-        <Row className="height-90vh">
+        <Row>
           <Col sm={4}>
             {conversations.map((conversation) => (
               <> 
@@ -122,14 +122,16 @@ const ChatPage = () => {
               </>
             ))}
           </Col>
-          <Col sm={8}>
+          <Col sm={8} cla>
+            <div className="scroll height-70vh">
             {messages.map((message) => (
               <Message
                 message={message}
                 own={state.user._id === message.senderId}
               />
             ))}
-            <div className="form-container">
+            </div>
+            <div className="form-container fix-bottom">
               <Form className="message-submit">
                 <Form.Group>
                   <Form.Control

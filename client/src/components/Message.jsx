@@ -5,7 +5,7 @@ const Message = ({ message, own }) => {
   return (
     <>
 
-        <Row>
+        <Row className="width-90pc">
           { own ? (
       <>
             <Col xs={2}></Col>
