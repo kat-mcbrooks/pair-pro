@@ -58,11 +58,11 @@ const Register = () => {
   return (
     <>
       <div className="sml-banner-image">
-        <div className="white-bg dark-teal-text full-width">
-          <h1 className="purple-text" data-testid="register text">
+        <div className="dark-grey-bg white-text full-width">
+          <h1 className="varela" data-testid="register text">
             Sign Up Here
           </h1>
-          <h3 className="dark-teal-text courier" data-testid="register phrase">
+          <h3 className="courier" data-testid="register phrase">
             You'll be Pair Programming in no time!
           </h3>
         </div>

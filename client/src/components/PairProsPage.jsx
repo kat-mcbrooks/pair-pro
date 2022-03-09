@@ -1,10 +1,17 @@
 import axios from "axios";
+<<<<<<< HEAD
 import { useState } from "react";
 import { useEffect } from "react";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
 import robot from '../assets/robot.png'
 import { ExternalLink } from 'react-external-link';
 import { AiFillGithub } from 'react-icons/ai';
+=======
+import { useState, useEffect } from "react";
+import { Row, Container } from "react-bootstrap";
+import ProfileCardSmall from "./ProfileCardSmall"
+
+>>>>>>> main
 
 const PersonList = () => {
   const [persons, setPersons] = useState([]);
@@ -19,15 +26,16 @@ const PersonList = () => {
 
   return (
     <>
-      <div className='sml-banner-image'>
-        <div className="white-bg dark-teal-text full-width">
-          <h3>Welcome to PairPro, find yourself a pair!</h3>
+      <div className="sml-banner-image">
+        <div className="dark-grey-bg white-text full-width courier">
+          <h2>Welcome to PairPro</h2> <h4>find yourself a pair!</h4>
         </div>
       </div>
       <div data-testid="person-cards">
-        <Container fluid >
-          <Row xs={1} sm={2} md ={3} lg={4} xl={5} >
+        <Container fluid>
+          <Row xs={1} sm={2} md={3} lg={4} xl={5}>
             {persons.map((person) => (
+<<<<<<< HEAD
               <Col>
                 <Card className="card">
                   <Card.Img variant="top" src={robot} />
@@ -41,12 +49,14 @@ const PersonList = () => {
                 </Card>
                 <br></br>
               </Col>
+=======
+              <ProfileCardSmall person={person}/>
+>>>>>>> main
             ))}
           </Row>
         </Container>
       </div>
     </>
-
   );
 };
 

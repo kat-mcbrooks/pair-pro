@@ -5,6 +5,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoggedIn: false,
+        user: null,
         isFetching: true,
         error: false,
       };
@@ -12,7 +13,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoggedIn: true,
-        //user: action.payload,
+        user: action.payload,
         isFetching: false,
         error: false,
       };
@@ -20,7 +21,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoggedIn: false,
-        //user: null,
+        user: null,
         isFetching: false,
         error: true,
       };
@@ -28,7 +29,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoggedIn: false,
-        //user: null
+        user: null,
         isFetching: false,
         error: false,
       };
