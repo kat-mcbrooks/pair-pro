@@ -5,8 +5,6 @@ describe('Chat Page', () => {
     .should('be.equal', 'http://localhost:3000/login');
   })
 
-
-
  it('when user is logged in, user can chat with others', () => {
     cy.visit('/login');
   cy.get('#email').type('kb@gmail.com');
@@ -33,6 +31,5 @@ describe('Chat Page', () => {
 //     cy.get('#messageinputfield').type('Hi');  
 //     cy.get('button[type="submit"]').click();
 //  })
-
 
 })
