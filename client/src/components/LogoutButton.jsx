@@ -17,7 +17,7 @@ const LogoutButton = () => {
   };
 
   return (
-    <Button  variant="primary" onClick={logout}>
+    <Button variant="primary" onClick={logout}>
       Logout
     </Button>
   );

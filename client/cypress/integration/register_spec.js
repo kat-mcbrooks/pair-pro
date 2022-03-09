@@ -15,4 +15,7 @@ describe('register', () => {
       cy.url()
       .should('be.equal', 'http://localhost:3000/pairpros');
     })
+    it('after registration, user can see and click on logout button', () => {
+      cy.contains('Logout').click()
+    })
 })
