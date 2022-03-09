@@ -58,10 +58,10 @@ const registerUser = asyncHandler(async (req, res) => {
 // Authenticate a User || route: POST /api/users/login || access: Public 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
-  const lowerCaseEmail = email.toLowerCase()
+  const lowerCaseLogin = email.toLowerCase()
 
   // Check for user's email
-  const user = await User.findOne({lowerCaseEmail})
+  const user = await User.findOne({lowerCaseLogin})
 
   if(user && (await bcrypt.compare(password, user.password))) {
     res.status(200).json({

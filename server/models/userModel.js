@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema(
       required: [true, 'Please add a password']
     },
     languages: {
-      type: String,
+      type: Array,
       required: [true, 'Please add at least one language you know, or will be learning']
     },
     bio: {

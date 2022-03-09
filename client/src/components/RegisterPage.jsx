@@ -91,6 +91,7 @@ const Register = () => {
               This will be displayed on your profile page.
             </Form.Text>
           </Form.Group>
+
           <Form.Group data-testid="email input" className="form-group mb-3" controlId="formBasicEmail">
             <Form.Label className="white-bg">Email address</Form.Label>
             <Form.Control 
@@ -105,6 +106,7 @@ const Register = () => {
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
+
           <Form.Group cdata-testid="password input" className="form-group mb-3" controlId="formBasicPassword">
             <Form.Label className="white-bg">Password</Form.Label>
             <Form.Control 
@@ -116,6 +118,7 @@ const Register = () => {
               onChange={onChange}
             />
           </Form.Group>
+
           <Form.Group cdata-testid="confirm password input" className="form-group mb-3" controlId="formBasicPassword">
             <Form.Label className="white-bg">Password</Form.Label>
             <Form.Control 
@@ -127,6 +130,7 @@ const Register = () => {
               onChange={onChange}
             />
           </Form.Group>
+
           {/* <Form.Group data-testid="languages input" className="form-group mb-3" controlId="formBasicEmail">
             <Form.Label className="white-bg">Languages</Form.Label>
             <Form.Control 
@@ -145,9 +149,13 @@ const Register = () => {
             value={languagesValue}
             placeholder='What languages do you use or are learning?' 
             handleOnChange={(selected) => {
-              setFormData({languages: selected})
+              setFormData((prevState) => ({
+                ...prevState,
+                languages: selected
+              }))
             }}
           />
+
 
           <Form.Group data-testid="bio input" ClassName="form-group mb-3" controlId="formBasicEmail">
             <Form.Label className="white-bg">Bio</Form.Label>
@@ -158,7 +166,8 @@ const Register = () => {
               value={bioValue}
               placeholder='Tell everyone a bit about yourself' 
               onChange={onChange} />
-              </Form.Group>
+          </Form.Group>
+
           <Form.Group data-testid="github input" className="form-group mb-3" controlId="formBasicEmail">
             <Form.Label className="white-bg">Github</Form.Label>
             <Form.Control 
@@ -168,7 +177,8 @@ const Register = () => {
               value={githubValue}
               placeholder='Add GitHub account user name eg. pair-pro' 
               onChange={onChange} />
-        </Form.Group>
+          </Form.Group>
+
           {/* <Languages  languagesValue={languagesValue}/>
           <Level /> */}
           <Button variant="primary" type="submit" data-testid="add-btn">
