@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 import { registerCall } from "../apiCalls";
 import { Form, Button, Row, Col } from 'react-bootstrap'
+import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 // import Languages from './Languages';
 // import Level from './Level';
 
@@ -16,7 +17,7 @@ const Register = () => {
     email: "",
     password: "",
     password2: "",
-    languages: "",
+    languages: [],
     bio: "",
     github: "",
   });
@@ -30,6 +31,7 @@ const Register = () => {
     }));
   };
 
+ 
   const onSubmit = (e) => {
     e.preventDefault();
     if (password !== password2) {
@@ -43,6 +45,7 @@ const Register = () => {
         bio,
         github,
       };
+      console.log(userData)
       registerCall(userData, dispatch); //calls api in separate file
     }
   };
@@ -54,6 +57,8 @@ const Register = () => {
   const [languagesValue] = useState();
   const [bioValue] = useState();
   const [githubValue] = useState();
+
+  const languageList = ['JavaScript', 'Ruby', 'Python']
   
 
   return (
@@ -122,7 +127,7 @@ const Register = () => {
               onChange={onChange}
             />
           </Form.Group>
-          <Form.Group data-testid="languages input" className="form-group mb-3" controlId="formBasicEmail">
+          {/* <Form.Group data-testid="languages input" className="form-group mb-3" controlId="formBasicEmail">
             <Form.Label className="white-bg">Languages</Form.Label>
             <Form.Control 
               type="text" 
@@ -131,7 +136,19 @@ const Register = () => {
               value={languagesValue}
               placeholder='What languages do you use or are learning?' 
               onChange={onChange} />
-          </Form.Group>
+          </Form.Group> */}
+
+          <DropdownMultiselect
+            options={languageList}
+            id='languages'
+            name='languages'
+            value={languagesValue}
+            placeholder='What languages do you use or are learning?' 
+            handleOnChange={(selected) => {
+              setFormData({languages: selected})
+            }}
+          />
+
           <Form.Group data-testid="bio input" ClassName="form-group mb-3" controlId="formBasicEmail">
             <Form.Label className="white-bg">Bio</Form.Label>
             <Form.Control 
@@ -141,7 +158,7 @@ const Register = () => {
               value={bioValue}
               placeholder='Tell everyone a bit about yourself' 
               onChange={onChange} />
-          </Form.Group>
+              </Form.Group>
           <Form.Group data-testid="github input" className="form-group mb-3" controlId="formBasicEmail">
             <Form.Label className="white-bg">Github</Form.Label>
             <Form.Control 
@@ -151,7 +168,7 @@ const Register = () => {
               value={githubValue}
               placeholder='Add GitHub account user name eg. pair-pro' 
               onChange={onChange} />
-          </Form.Group>
+        </Form.Group>
           {/* <Languages  languagesValue={languagesValue}/>
           <Level /> */}
           <Button variant="primary" type="submit" data-testid="add-btn">
