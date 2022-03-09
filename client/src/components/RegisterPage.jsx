@@ -14,9 +14,10 @@ const Register = () => {
     password2: "",
     languages: "",
     bio: "",
+    image: ""
   });
 
-  const { name, email, password, password2, languages, bio } = formData;
+  const { name, email, password, password2, languages, bio, image } = formData;
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -36,6 +37,7 @@ const Register = () => {
         password,
         languages,
         bio,
+        image
       };
       registerCall(userData, dispatch); //calls api in separate file
     }
@@ -47,6 +49,7 @@ const Register = () => {
   const [confirmpasswordValue] = useState();
   const [languagesValue] = useState();
   const [bioValue] = useState();
+  const [imageValue] = useState();
 
   return (
     <>
@@ -126,6 +129,16 @@ const Register = () => {
               name="bio"
               value={bioValue}
               placeholder="Tell everyone a bit about yourself"
+              onChange={onChange}
+            />
+          </div>
+          <div data-testid="image" className="image">
+            <FileBase64
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}
+              value={imageValue}
+              placeholder="Add a profile picture"
               onChange={onChange}
             />
           </div>

@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
-import robot from "../assets/robot.png";
+// import FileBase64 from 'react-file-base64'; 
 import person1 from "../assets/people/1.jpeg"
 import person2 from "../assets/people/2.jpeg"
 import person3 from "../assets/people/3.jpeg"
@@ -48,7 +48,7 @@ const Me = () => {
           <Col md={2}></Col>
           <Col md={3}>
             <Card className="me-card">
-              <Card.Img variant="top" src={people[Math.floor(Math.random()*people.length)]} />
+              <Card.Img variant="top" src={me.image} />
             </Card>
             <br></br>
           </Col>

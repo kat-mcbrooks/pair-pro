@@ -1,6 +1,6 @@
 import { Col, Card } from "react-bootstrap";
 import ChatToButton from "./ChatToButton";
-import robot from "../assets/robot.png";
+import FileBase64 from 'react-file-base64'; 
 import person1 from "../assets/people/1.jpeg"
 import person2 from "../assets/people/2.jpeg"
 import person3 from "../assets/people/3.jpeg"
@@ -16,7 +16,7 @@ const ProfileCardSmall = ({person}) => {
     <Col>
       <Card className="card" border="warning" >
       <Card.Header as="h5" bg="warning">{person.name}</Card.Header>
-        <Card.Img variant="top" src={people[Math.floor(Math.random()*people.length)]} />
+        <Card.Img variant="top" src={person.image} />
         <Card.Body>
           <Card.Text>Languages: {person.languages}</Card.Text>
           <Card.Text>Bio: {person.bio}</Card.Text>

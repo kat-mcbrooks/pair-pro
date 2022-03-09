@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Row, Container } from "react-bootstrap";
 import ProfileCardSmall from "./ProfileCardSmall"
-
+// import FileBase64 from 'react-file-base64'; 
 
 const PersonList = () => {
   const [persons, setPersons] = useState([]);
