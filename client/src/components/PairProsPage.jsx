@@ -35,7 +35,7 @@ const PersonList = () => {
                     <Card.Title>{person.name}</Card.Title>
                     <Card.Text>Languages: {person.languages}</Card.Text>
                     <Card.Text>Bio: {person.bio}</Card.Text>
-                    <Card.Text> < AiFillGithub /> Github: <ExternalLink href={`http://${person.github}`} /></Card.Text>
+                    <Card.Text> < AiFillGithub /> Github: <ExternalLink href={`http://www.github.com/${person.github}`} /></Card.Text>
                     <Button variant="primary">{`Chat to ${person.name}`}</Button>
                   </Card.Body>
                 </Card>

@@ -5,6 +5,7 @@ import { registerCall } from "../apiCalls";
 import Languages from './Languages';
 import Level from './Level';
 
+
 const Register = () => {
   const { dispatch } = useContext(AuthContext);
   const { state } = useContext(AuthContext);
@@ -142,7 +143,7 @@ const Register = () => {
               id="github"
               name="github"
               value={githubValue}
-              placeholder="Add GitHub account eg. github.com/pair-pro"
+              placeholder="Add GitHub account user name eg. pair-pro"
               onChange={onChange}
             />
           </div>
@@ -153,7 +154,7 @@ const Register = () => {
           </div>
         </form>
       </section>
-      <Languages />
+      <Languages  languagesValue={languagesValue}/>
       <Level />
 
   
