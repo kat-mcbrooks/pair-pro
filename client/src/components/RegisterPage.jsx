@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 import { registerCall } from "../apiCalls";
+import Languages from './Languages';
+import Level from './Level';
 
 const Register = () => {
   const { dispatch } = useContext(AuthContext);
@@ -14,9 +16,10 @@ const Register = () => {
     password2: "",
     languages: "",
     bio: "",
+    github: "",
   });
 
-  const { name, email, password, password2, languages, bio } = formData;
+  const { name, email, password, password2, languages, bio, github } = formData;
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -36,6 +39,7 @@ const Register = () => {
         password,
         languages,
         bio,
+        github,
       };
       registerCall(userData, dispatch); //calls api in separate file
     }
@@ -47,6 +51,8 @@ const Register = () => {
   const [confirmpasswordValue] = useState();
   const [languagesValue] = useState();
   const [bioValue] = useState();
+  const [githubValue] = useState();
+  
 
   return (
     <>
@@ -129,6 +135,17 @@ const Register = () => {
               onChange={onChange}
             />
           </div>
+          <div data-testid="github input" className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              id="github"
+              name="github"
+              value={githubValue}
+              placeholder="Add GitHub account eg. github.com/pair-pro"
+              onChange={onChange}
+            />
+          </div>
           <div data-testid="add-btn" className="form-group">
             <button type="submit" className="btn btn-block">
               Submit
@@ -136,6 +153,10 @@ const Register = () => {
           </div>
         </form>
       </section>
+      <Languages />
+      <Level />
+
+  
     </>
   );
 };

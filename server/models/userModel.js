@@ -22,6 +22,10 @@ const userSchema = mongoose.Schema(
     bio: {
       type: String,
       required: [true, 'Please tell everyone a little about yourself']
+    },
+    github: {
+      type: String,
+      required: [true, 'Please add your Github account']
     }
   },
   {

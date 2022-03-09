@@ -12,9 +12,9 @@ const getUsers = asyncHandler(async (req, res) => {
 
 // Register new user || route: POST /api/users || access: Public 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, languages, bio } = req.body
+  const { name, email, password, languages, bio, github } = req.body
 
-  if(!name || !email || !password || !languages || !bio) {
+  if(!name || !email || !password || !languages || !bio || !github) {
     res.status(400)
     throw new Error('Please complete all fields')
   }
@@ -37,7 +37,8 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password: hashedPassword,
     languages,
-    bio
+    bio,
+    github
   })
 
   if(user) {
@@ -83,7 +84,8 @@ const getMe = asyncHandler(async (req, res) => {
     name,
     email,
     languages,
-    bio
+    bio,
+    github
   })
 })
 

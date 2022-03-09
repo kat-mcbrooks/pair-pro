@@ -39,6 +39,7 @@ const Me = () => {
                 <Card.Title>{me.name}</Card.Title>
                 <Card.Text>Languages: {me.languages}</Card.Text>
                 <Card.Text>Bio: {me.bio}</Card.Text>
+                <Card.Text>GitHub: {me.github}</Card.Text>
                 <Button variant="primary">Edit your Profile</Button>
               </Card.Body>
             </Card>

@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
 import robot from '../assets/robot.png'
+import { ExternalLink } from 'react-external-link';
+import { AiFillGithub } from 'react-icons/ai';
 
 const PersonList = () => {
   const [persons, setPersons] = useState([]);
@@ -13,6 +15,7 @@ const PersonList = () => {
       setPersons(persons);
     });
   }, []);
+  
 
   return (
     <>
@@ -32,6 +35,7 @@ const PersonList = () => {
                     <Card.Title>{person.name}</Card.Title>
                     <Card.Text>Languages: {person.languages}</Card.Text>
                     <Card.Text>Bio: {person.bio}</Card.Text>
+                    <Card.Text> < AiFillGithub /> Github: <ExternalLink href={`http://${person.github}`} /></Card.Text>
                     <Button variant="primary">{`Chat to ${person.name}`}</Button>
                   </Card.Body>
                 </Card>
