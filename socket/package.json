@@ -7,6 +7,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "build": "^0.1.4",
     "nodemon": "^2.0.15",
     "socket.io": "^4.4.1"
   }

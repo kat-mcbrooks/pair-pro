@@ -2,7 +2,7 @@
 
 const io = require("socket.io")(8900, {
   cors: {
-    origin: "https://pairpro22.herokuapp.com/",
+    origin: "https://localhost:3000",
   },
 });
 
