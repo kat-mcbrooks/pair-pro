@@ -29,12 +29,13 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // Hash passowrd
   const salt = await bcrypt.genSalt(10)
-  const hashedPassword = await bcrypt.hash(password, salt)
+  const hashedPassword = await bcrypt.hash(lowerPassword, salt)
 
   // Create user
+  const lowerCaseEmail = email.toLowerCase();
   const user = await User.create({
     name,
-    email,
+    email: lowerCaseEmail,
     password: hashedPassword,
     languages,
     bio
@@ -56,9 +57,10 @@ const registerUser = asyncHandler(async (req, res) => {
 // Authenticate a User || route: POST /api/users/login || access: Public 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
+  const lowerCaseEmail = email.toLowerCase()
 
   // Check for user's email
-  const user = await User.findOne({email})
+  const user = await User.findOne({lowerCaseEmail})
 
   if(user && (await bcrypt.compare(password, user.password))) {
     res.json({
