@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 import { registerCall } from "../apiCalls";
+import FileBase64 from 'react-file-base64';
+
 
 const Register = () => {
   const { dispatch } = useContext(AuthContext);
@@ -14,9 +16,10 @@ const Register = () => {
     password2: "",
     languages: "",
     bio: "",
+    image: ""
   });
 
-  const { name, email, password, password2, languages, bio } = formData;
+  const { name, email, password, password2, languages, bio, image } = formData;
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -36,6 +39,7 @@ const Register = () => {
         password,
         languages,
         bio,
+        image
       };
       registerCall(userData, dispatch); //calls api in separate file
     }
@@ -47,6 +51,7 @@ const Register = () => {
   const [confirmpasswordValue] = useState();
   const [languagesValue] = useState();
   const [bioValue] = useState();
+  const [imageValue] = useState(); 
 
   return (
     <>
@@ -128,6 +133,17 @@ const Register = () => {
               placeholder="Tell everyone a bit about yourself"
               onChange={onChange}
             />
+          </div>
+          <div data-testid="image" className="image">
+          <FileBase64
+            type="file"
+            data-cy="file-upload"
+            multiple={false}
+            onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}
+            value={imageValue}
+            placeholder="Show us your lovely face"
+            onChange={onChange}
+          />
           </div>
           <div data-testid="add-btn" className="form-group">
             <button type="submit" className="btn btn-block">
