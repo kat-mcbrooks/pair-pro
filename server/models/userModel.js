@@ -1,4 +1,9 @@
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
+import mongoose from 'mongoose'
+import AttachmentPlugin from 'mongoose-file-attachment' // ALWAYS after mongoose
+
+mongoose.Schema.Types.Attachment = AttachmentPlugin.Attachment
+mongoose.plugin(AttachmentPlugin)
 
 const userSchema = mongoose.Schema(
   {
@@ -22,6 +27,13 @@ const userSchema = mongoose.Schema(
     bio: {
       type: String,
       required: [true, 'Please tell everyone a little about yourself']
+    },
+    image: {
+      // does this need to change to change? Is the string too long?
+      type: String,
+      image: Buffer,
+      required: [true, 'Please add a profile picture'],
+      default: ""
     }
   },
   {

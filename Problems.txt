@@ -1,0 +1,25 @@
+I want users to add a profile picture to their profile. 
+The other user credentials are being stored as strings in a MongoDB atlas database. 
+I am using Base64 in a JSX component to convert the image into a string to be stored
+I have console.log-ed the string – it is converting as expected
+When the user presses submit, we expect a JWT to be generated and a new user created
+It is not happening, and only displays other users. 
+This is the error we are getting: 
+{message: 'request entity too large', stack: 'PayloadTooLargeError: request entity too large\n   …-pro/server/node_modules/cors/lib/index.js:188:7)'}
+message: "request entity too large"
+stack: "PayloadTooLargeError: request entity too large\n    at readStream (/Users/hannah/Projects/m
+
+I followed some instructions for a similar problem on Stack Overflow. 
+I have tried changing the limit with app.use(express.bodyParser({limit: '50mb'}));
+and get this error "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+I tried following a tutorial using Multer and that didn't work. 
+
+I don't know if I am heading in the right direction trying to use Base 64. 
+I've been trying to work on this for three days so would really appreciate some help so I don't spend the rest of the night down some rabbit hole with no success! 
+
+
+Stack overflow advice: 
+"To do that you'll want to base64 encode the image, then store it using mongo's BinData type. 
+As I understand it, that will then save it as a BSON bit array, not actually store the base64 string,
+ so the size won't grow larger than your original binary image.
+It will display in json queries as a base64 string, which you can use to get the binary image back."

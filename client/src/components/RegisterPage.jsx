@@ -137,12 +137,13 @@ const Register = () => {
             <FileBase64
               type="file"
               multiple={false}
-              onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}
+              onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}           
               // value={imageValue}
               // placeholder="Add a profile picture"
               // onChange={onChange}
             />
           </div>
+          <div>{ console.log(image) }</div>
           <div data-testid="add-btn" className="form-group">
             <button type="submit" className="btn btn-block">
               Submit

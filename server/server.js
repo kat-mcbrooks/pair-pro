@@ -23,6 +23,16 @@ app.use("/api/messages", require("./routes/messageRoutes"));
 
 app.use(errorHandler);
 
+app.use(bodyParser.json({
+  limit: '50mb'
+}));
+
+app.use(bodyParser.urlencoded({
+  limit: '50mb',
+  parameterLimit: 100000,
+  extended: true 
+}));
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, '../client/build')));
 
