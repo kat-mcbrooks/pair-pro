@@ -8,8 +8,6 @@ describe('login', () => {
       .click()      
   })
   
-
-
   it('brings user to /prospage path', () => {
     cy.url()
     .should('be.equal', 'http://localhost:3000/pairpros');
