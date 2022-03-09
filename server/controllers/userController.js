@@ -29,7 +29,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // Hash passowrd
   const salt = await bcrypt.genSalt(10)
-  const hashedPassword = await bcrypt.hash(lowerPassword, salt)
+  const hashedPassword = await bcrypt.hash(password, salt)
 
   // Create user
   const lowerCaseEmail = email.toLowerCase();
