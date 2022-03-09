@@ -8,7 +8,7 @@
     "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd ./client && yarn --cwd ./client run build",
     "server": "nodemon server/server.js",
     "client": "yarn --cwd ./client run start",
-    "socket": "yarn --cwd ./socket run start",
+    "socket": "nodemon socket/index.js",
     "dev": "concurrently \"yarn run server\" \"yarn run client\" \"yarn run socket\""
   },
   "license": "MIT",
@@ -19,7 +19,8 @@
     "express": "^4.17.3",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.9"
+    "mongoose": "^6.1.9",
+    "socket.io": "^4.4.1"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
@@ -27,7 +28,6 @@
   },
   "engines": {
     "node": ">=15.0.0 <=17.6.0"
-    
   },
   "repository": "https://github.com/hannahdesmond/pair-pro.git",
   "author": "Vanessa Florio <vanessaflorio1997@gmail.com>"
