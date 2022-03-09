@@ -35,8 +35,8 @@ const Login = () => {
   <>
     <div className='sml-banner-image'>
       <div className="dark-grey-bg white-text">
-        <h1 className="varela">Login</h1>
-        <h3 className="courier">Welcome back to PairPro!</h3>
+        <h1 data-testid="login text" className="varela">Login</h1>
+        <h3 data-testid="login phrase" className="courier">Welcome back to PairPro!</h3>
       </div>
     </div>
     <div className="vertical-center white-bg top-10vh">
@@ -45,7 +45,8 @@ const Login = () => {
   
       <Col xs={6}>
     <Form onSubmit ={onSubmit}>
-      <Form.Group data-testid="email input" ClassName="form-group mb-3" controlId="formBasicEmail">
+      <div data-testid="email input"> 
+        <Form.Group className="form-group mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control 
           type="email" 
@@ -59,8 +60,10 @@ const Login = () => {
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
+      </div>
 
-      <Form.Group cdata-testid="password input" className="form-group mb-3" controlId="formBasicPassword">
+      <div data-testid="password input">
+      <Form.Group  className="form-group mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control 
           type="password" 
@@ -71,6 +74,7 @@ const Login = () => {
           onChange={onChange}
         />
       </Form.Group>
+      </div>
       <Button variant="primary" type="submit" data-testid="add-btn">
       {isFetching ? "loading" : "Log in"}
       </Button>
