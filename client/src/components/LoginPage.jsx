@@ -39,14 +39,15 @@ const Login = () => {
         <h3 className="courier">Welcome back to PairPro!</h3>
       </div>
     </div>
-    <div className="vertical-center white-bg top-10vh">
+
+    <div className="vertical-center top-10vh">
     <Row className="full-width">
       <Col xs={3}></Col>
   
       <Col xs={6}>
     <Form onSubmit ={onSubmit}>
-      <Form.Group data-testid="email input" ClassName="form-group mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+      <Form.Group data-testid="email input" className="form-group mb-3" controlId="formBasicEmail">
+        <Form.Label className="white-bg">Email address</Form.Label>
         <Form.Control 
           type="email" 
           id='email'
@@ -54,13 +55,13 @@ const Login = () => {
           value={inputValue}
           placeholder='Enter your email' 
           onChange={onChange} />
-        <Form.Text className="text-muted">
+        <Form.Text className="text-muted white-bg">
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
 
       <Form.Group cdata-testid="password input" className="form-group mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label className="white-bg">Password</Form.Label>
         <Form.Control 
           type="password" 
           id='password'
@@ -75,7 +76,6 @@ const Login = () => {
       </Button>
     </Form>
     </Col>
-  
     <Col xs={3}></Col>
     </Row>
     </div>

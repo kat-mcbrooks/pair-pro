@@ -86,6 +86,12 @@ body {
   width: 98%;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+
+}
+
 $theme-colors: (
     "success": #00c2cb, 
     "info": #5ec9cc,
@@ -130,6 +136,10 @@ $theme-colors: (
 
 .dark-grey-bg {
   background-color: #343434;
+}
+
+.dark-grey-text {
+  color: #343434;
 }
 
 .white-bg {

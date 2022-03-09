@@ -2,8 +2,9 @@ import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 import { registerCall } from "../apiCalls";
-import Languages from './Languages';
-import Level from './Level';
+import { Form, Button, Row, Col } from 'react-bootstrap'
+// import Languages from './Languages';
+// import Level from './Level';
 
 
 const Register = () => {
@@ -68,97 +69,100 @@ const Register = () => {
         </div>
       </div>
 
-      <section className="form">
-        <form onSubmit={onSubmit}>
-          <div data-testid="name input" className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
+      <Row className="full-width">
+      <Col></Col>
+        <Col xs={6}>
+          <Form onSubmit ={onSubmit}>
+          <Form.Group data-testid="name input" className="form-group mb-3" controlId="formBasicEmail">
+            <Form.Label className="white-bg">Name</Form.Label>
+            <Form.Control 
+              type="text" 
+              id='name'
+              name='name'
               value={nameValue}
-              placeholder="Enter your name"
-              onChange={onChange}
-            />
-          </div>
-          <div data-testid="email input" className="form-group">
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
+              placeholder='Enter your name' 
+              onChange={onChange} />
+            <Form.Text className="text-muted white-bg">
+              This will be displayed on your profile page.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group data-testid="email input" className="form-group mb-3" controlId="formBasicEmail">
+            <Form.Label className="white-bg">Email address</Form.Label>
+            <Form.Control 
+              type="email" 
+              id='email'
+              name='email'
               value={emailValue}
-              placeholder="Enter your email"
-              onChange={onChange}
-            />
-          </div>
-          <div data-testid="password input" className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
+              placeholder='Enter your email' 
+              onChange={onChange} 
+              />
+            <Form.Text className="text-muted white-bg">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group cdata-testid="password input" className="form-group mb-3" controlId="formBasicPassword">
+            <Form.Label className="white-bg">Password</Form.Label>
+            <Form.Control 
+              type="password" 
+              id='password'
+              name='password'
               value={passwordValue}
-              placeholder="Enter password"
+              placeholder='Enter your password' 
               onChange={onChange}
             />
-          </div>
-          <div data-testid="confirm password input" className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password2"
-              name="password2"
+          </Form.Group>
+          <Form.Group cdata-testid="confirm password input" className="form-group mb-3" controlId="formBasicPassword">
+            <Form.Label className="white-bg">Password</Form.Label>
+            <Form.Control 
+              type="password" 
+              id='password2'
+              name='password2'
               value={confirmpasswordValue}
-              placeholder="Confirm password"
+              placeholder='Confirm your password' 
               onChange={onChange}
             />
-          </div>
-          <div data-testid="languages input" className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="languages"
-              name="languages"
+          </Form.Group>
+          <Form.Group data-testid="languages input" className="form-group mb-3" controlId="formBasicEmail">
+            <Form.Label className="white-bg">Languages</Form.Label>
+            <Form.Control 
+              type="text" 
+              id='languages'
+              name='languages'
               value={languagesValue}
-              placeholder="What languages do you use or are learning?"
-              onChange={onChange}
-            />
-          </div>
-          <div data-testid="bio input" className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="bio"
-              name="bio"
+              placeholder='What languages do you use or are learning?' 
+              onChange={onChange} />
+          </Form.Group>
+          <Form.Group data-testid="bio input" ClassName="form-group mb-3" controlId="formBasicEmail">
+            <Form.Label className="white-bg">Bio</Form.Label>
+            <Form.Control 
+              type="text" 
+              id='bio'
+              name='bio'
               value={bioValue}
-              placeholder="Tell everyone a bit about yourself"
-              onChange={onChange}
-            />
-          </div>
-          <div data-testid="github input" className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="github"
-              name="github"
+              placeholder='Tell everyone a bit about yourself' 
+              onChange={onChange} />
+          </Form.Group>
+          <Form.Group data-testid="github input" className="form-group mb-3" controlId="formBasicEmail">
+            <Form.Label className="white-bg">Github</Form.Label>
+            <Form.Control 
+              type="text" 
+              id='github'
+              name='github'
               value={githubValue}
-              placeholder="Add GitHub account user name eg. pair-pro"
-              onChange={onChange}
-            />
-          </div>
-          <div data-testid="add-btn" className="form-group">
-            <button type="submit" className="btn btn-block">
-              Submit
-            </button>
-          </div>
-        </form>
-      </section>
-      <Languages  languagesValue={languagesValue}/>
-      <Level />
-
-  
-    </>
+              placeholder='Add GitHub account user name eg. pair-pro' 
+              onChange={onChange} />
+          </Form.Group>
+          {/* <Languages  languagesValue={languagesValue}/>
+          <Level /> */}
+          <Button variant="primary" type="submit" data-testid="add-btn">
+          Join
+          </Button>
+        </Form>
+        <br></br>
+        </Col>
+        <Col></Col>
+      </Row>
+</>
   );
 };
 

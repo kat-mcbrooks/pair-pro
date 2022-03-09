@@ -1114,16 +1114,6 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-external-link@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/react-external-link/-/react-external-link-1.2.2.tgz#5a2123c75dc9eee439e3335e11b18f953db6affc"
-  integrity sha512-CbJidnDmhcKlH5gVyt2dbmylcwayMY1wuRW8J1V1o7ZPMHdoUrDDmh/GvAMe847eI3sQBg7PLwSLAl5GiyuI+g==
-
-react-icons@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
-  integrity sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==
-
 readdirp@~3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-3.6.0.tgz#74a370bd857116e245b29cc97340cd431a02a6c7"
