@@ -28,7 +28,7 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    loginCall({ email: email, password: password }, dispatch);
+    loginCall({ email: email.toLowerCase(), password: password }, dispatch);
   };
 
   return (

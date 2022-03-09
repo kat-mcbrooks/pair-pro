@@ -39,7 +39,7 @@ const Register = () => {
     } else {
       const userData = {
         name,
-        email,
+        email: email.toLowerCase(),
         password,
         languages,
         bio,
