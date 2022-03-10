@@ -10,6 +10,7 @@ const getUsers = asyncHandler(async (req, res) => {
   res.status(200).json(users)
 })
 
+
 // Register new user || route: POST /api/users || access: Public 
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, languages, bio } = req.body
