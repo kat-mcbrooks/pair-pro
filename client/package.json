@@ -50,7 +50,7 @@
     ]
   },
   "engines": {
-    "node": "17.x"
+    "node": ">=15.0.0 <=17.6.0"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.2",
