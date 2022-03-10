@@ -64,7 +64,7 @@ const Register = () => {
   
   return (
     <>
-      <div className="sml-banner-image">
+      <div className="sml-banner-image-teal">
         <div className="dark-grey-bg white-text full-width">
           <h1 className="courier" data-testid="register text">
             Sign Up Here
@@ -176,8 +176,10 @@ const Register = () => {
           
            
           <Form.Group data-testid="image input" className="form-group mb-3" controlId="formBasicImage">
-            <Form.Label className="white-bg">Github</Form.Label>
+            <Form.Label className="white-bg">Profile Picture</Form.Label>
+            <div className="white-bg thin-grey-border muted-text">
               <FileBase64
+
                 type="file"
                 data-cy="file-upload"
                 multiple={false}
@@ -186,6 +188,7 @@ const Register = () => {
                 placeholder="Show us your lovely face"
                 onChange={onChange} 
               />
+              </div>
           </Form.Group>
 
           <Button variant="primary" type="submit" data-testid="add-btn">

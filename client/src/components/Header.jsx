@@ -3,6 +3,7 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 import LogoutButton from "./LogoutButton";
 import { useLocation } from 'react-router-dom'
 import { AuthContext } from "../context/AuthContext";
+import logoPic from '../assets/nav-logo-black.png'
 
 const Header = () => {
   const { state } = useContext(AuthContext);
@@ -17,7 +18,9 @@ const Header = () => {
   return (
   <Navbar fluid='true' className={bgColor} variant={logoColor} sticky={sticky}>
     <Container>
-      <Navbar.Brand className="varela"href={logoLink}>PairPro</Navbar.Brand>
+      <Navbar.Brand href={logoLink}>
+        <img className="height-max70px" src={logoPic} alt="Pair Pro Logo" />
+      </Navbar.Brand>
       <Nav>
         {state.isLoggedIn ? (
           <>

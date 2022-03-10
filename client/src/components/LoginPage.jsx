@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="sml-banner-image">
+      <div className="sml-banner-image-teal">
         <div className="dark-grey-bg white-text">
           <h1 data-testid="login text" className="varela">
             Login

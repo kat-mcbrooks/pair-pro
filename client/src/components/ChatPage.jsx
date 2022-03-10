@@ -106,7 +106,7 @@ const ChatPage = () => {
   }, [messages])
 
   const chatBackground = (conversation) => {
-    return conversation === currentChat ? "primary" : "warning"
+    return conversation === currentChat ? "primary" : "danger"
   }
 
   return (

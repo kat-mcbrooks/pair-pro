@@ -28,7 +28,7 @@ const Me = () => {
 
   return (
     <>
-    <div className="sml-banner-image">
+    <div className="sml-banner-image-teal">
       <div className="dark-grey-bg white-text  full-width courier">
         <h2>Nice profile, {me.name}!</h2> 
         <h5>Keep it up-to-date so potential pairs know what you're learning</h5>

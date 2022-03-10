@@ -9,7 +9,7 @@ const ProfileCardSmall = ({person}) => {
 
   return (
     <Col>
-      <Card className="card" border="white" >
+      <Card className="card" border="info" >
       <Card.Header as="h5" bg="warning">{person.name}</Card.Header>
         <Card.Img variant="top" src={image} alt="profile picture"/>
           <Card.Header as="h6">
