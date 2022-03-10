@@ -142,22 +142,28 @@ const Register = () => {
               onChange={onChange} />
           </Form.Group> */}
 
-          <DropdownMultiselect
-            options={languageList}
-            id='languages'
-            name='languages'
-            value={languagesValue}
-            placeholder='What languages do you use or are learning?' 
-            handleOnChange={(selected) => {
-              setFormData((prevState) => ({
-                ...prevState,
-                languages: selected
-              }))
-            }}
-          />
+          <Form.Group data-testid="bio input" className="form-group mb-3" controlId="formBasicEmail">
+            <Form.Label className="white-bg">Languages</Form.Label>
+            <div className="white-bg thin-grey-border muted-text">
+              <DropdownMultiselect
+                bg="white"
+                options={languageList}
+                id='languages'
+                name='languages'
+                value={languagesValue}
+                placeholder='What languages do you use or are learning?' 
+                handleOnChange={(selected) => {
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    languages: selected
+                  }))
+                }}
+              />
+            </div>
+          </Form.Group>
 
 
-          <Form.Group data-testid="bio input" ClassName="form-group mb-3" controlId="formBasicEmail">
+          <Form.Group data-testid="bio input" className="form-group mb-3" controlId="formBasicEmail">
             <Form.Label className="white-bg">Bio</Form.Label>
             <Form.Control 
               type="text" 

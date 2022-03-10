@@ -148,6 +148,13 @@ $theme-colors: (
   color: white;
 }
 
+.thin-grey-border {
+  border-style: solid;
+  border-color: #c0c0c0;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
 .courier {
   font-family: 'Courier New', Courier, monospace
 }
