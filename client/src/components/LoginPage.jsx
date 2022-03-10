@@ -6,7 +6,7 @@ import { loginCall } from "../apiCalls";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 const Login = () => {
-  const { isFetching, dispatch, state } = useContext(AuthContext);
+  const { isFetching, dispatch } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -35,7 +35,7 @@ const Login = () => {
     <>
       <div className="sml-banner-image-teal">
         <div className="dark-grey-bg white-text">
-          <h1 data-testid="login text" className="varela">
+          <h1 data-testid="login text" className="courier">
             Login
           </h1>
           <h3 data-testid="login phrase" className="courier">

@@ -113,7 +113,7 @@ const ChatPage = () => {
     <>
     <div className='sml-banner-image-teal'>
       <div className="dark-grey-bg white-text">
-        <h1 className="varela">Chat</h1>
+        <h1 className="courier">Chat</h1>
         <h3 className="courier">Time to talk code!</h3>
       </div>
     </div>
