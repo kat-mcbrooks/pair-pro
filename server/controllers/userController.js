@@ -108,16 +108,9 @@ const findUser = asyncHandler(async (req, res) => {
 const getUsersByLanguage = asyncHandler(async (req, res) => {
   const languageUsers = await User.find({ languages: {$regex: req.params.language, $options: 'i'} })
 
-  if(languageUsers) {
     res.status(200).json(languageUsers)
-  } else {
-    res.json([{
-      name: 'Sorry',
-      languages: 'There were no language matches',
-      bio: 'Please do try again'
-    }])
   }
-})
+)
 
 // Generate JWT
 const generateToken = (id) => {
