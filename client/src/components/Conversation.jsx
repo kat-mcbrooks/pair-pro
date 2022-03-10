@@ -18,14 +18,14 @@ const Conversation = ({ conversation, currentUser }) => {
     };
     getUser();
   }, [currentUser, conversation]);
-
+  console.log(user)
   return (
     <>
       <Card.Body>
         <Card.Text>{user?.name}</Card.Text>
       </Card.Body>
     </>
-  );
+  ); 
 };
 
 export default Conversation;

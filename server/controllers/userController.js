@@ -93,7 +93,7 @@ const getMe = asyncHandler(async (req, res) => {
 
 // Find a Specific User's Data || route: GET /api/users/:userId || access: Public
 const findUser = asyncHandler(async (req, res) => {
-  const { _id, name, email, languages, bio } = await User.findById(req.params.id)
+  const { _id, name, email, languages, bio, github } = await User.findById(req.params.id)
 
   res.status(200).json({
     id: _id,
