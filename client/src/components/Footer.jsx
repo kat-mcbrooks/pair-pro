@@ -1,10 +1,18 @@
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { Navbar, Container, Nav } from "react-bootstrap";
+import logoPic from '../assets/nav-logo-black.png'
 
 const Footer = () => {
+  const { state } = useContext(AuthContext);
+  const logoLink = state.isLoggedIn ? '/pairpros' : '/'
+
   return (
   <Navbar className='dark-orange-bg' variant='light'>
     <Container>
-      <Navbar.Brand >DreamTeam22</Navbar.Brand>
+    <Navbar.Brand href={logoLink}>
+        <img className="height-max70px" src={logoPic} alt="Pair Pro Logo" />
+      </Navbar.Brand>
         <Nav>
    
           <p><img src="https://img.icons8.com/fluency/48/000000/ruby-programming-language.png"/></p>
