@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { Row, Col, Container, Form, FormControl, Button } from "react-bootstrap";
 import ProfileCardSmall from "./ProfileCardSmall"
 
 const PersonList = () => {
   const [persons, setPersons] = useState([]);
   const [language, setLanguage] = useState("");
+  const { state } = useContext(AuthContext);
 
   useEffect(() => {
     axios.get(`/api/users/`).then((res) => {
@@ -69,11 +71,13 @@ const PersonList = () => {
       <div data-testid="person-cards">
         <Container fluid>
           <Row xs={1} sm={2} md={3} lg={4} xl={5}>
-            {persons.map((person) => (
-
-              <ProfileCardSmall person={person}/>
-
-            ))}
+            {persons.map((person) => {
+              if(state.user._id === person._id) {
+                return null
+              } else {
+                return <ProfileCardSmall person={person}/>
+              }
+              })}
           </Row>
         </Container>
       </div>
