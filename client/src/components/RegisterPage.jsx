@@ -10,7 +10,6 @@ import FileBase64 from 'react-file-base64';
 
 const Register = () => {
   const { dispatch } = useContext(AuthContext);
-  const { state } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -184,8 +183,9 @@ const Register = () => {
                 onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}
                 value={imageValue}
                 placeholder="Show us your lovely face"
-                onChange={onChange}
-            </Form.Group>
+                onChange={onChange} 
+              />
+          </Form.Group>
 
           <Button variant="primary" type="submit" data-testid="add-btn">
           Join

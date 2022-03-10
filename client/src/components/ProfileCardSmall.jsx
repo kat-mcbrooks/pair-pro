@@ -2,14 +2,16 @@ import { Row, Col, Card, Button } from "react-bootstrap";
 import ChatToButton from "./ChatToButton";
 import { ExternalLink } from 'react-external-link';
 import { AiFillGithub } from 'react-icons/ai';
+import robot from '../assets/robot.png'
 
 const ProfileCardSmall = ({person}) => {
+  const image = person.image ? person.image : robot
 
   return (
     <Col>
       <Card className="card" border="white" >
       <Card.Header as="h5" bg="warning">{person.name}</Card.Header>
-        <Card.Img variant="top" src={person.image} alt="profile picture"/>
+        <Card.Img variant="top" src={image} alt="profile picture"/>
           <Card.Header as="h6">
             Languages 
           </Card.Header> 
