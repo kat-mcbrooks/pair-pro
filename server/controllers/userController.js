@@ -61,7 +61,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const lowerCaseEmail = email.toLowerCase()
 
   // Check for user's email
-  const user = await User.findOne({lowerCaseEmail})
+  const user = await User.findOne({email: lowerCaseEmail})
 
   if(user && (await bcrypt.compare(password, user.password))) {
     res.json({
