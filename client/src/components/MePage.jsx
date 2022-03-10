@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import { ExternalLink } from 'react-external-link';
+import { AiFillGithub } from 'react-icons/ai';
 
 const Me = () => {
   const [me, setMe] = useState([]);
@@ -28,7 +30,8 @@ const Me = () => {
     <>
     <div className="sml-banner-image">
       <div className="dark-grey-bg white-text  full-width courier">
-        <h2>Hi, {me.name}!</h2> <h4>dont't forget to add any new languages</h4>
+        <h2>Nice profile, {me.name}!</h2> 
+        <h5>Keep it up-to-date so potential pairs know what you're learning</h5>
       </div>
     </div>
     <div data-testid="person-cards" className="card-container">
@@ -43,10 +46,26 @@ const Me = () => {
           </Col>
           <Col md={5}>
             <Card className="me-card">
+              <Card.Header>Languages: <br></br> {me.languages?.join(', ')}</Card.Header>
+              <Card.Header>Bio: <br></br> {me.bio}</Card.Header>
               <Card.Body>
-                <Card.Text>Languages: {me.languages}</Card.Text>
-                <Card.Text>Bio: {me.bio}</Card.Text>
-                <Button variant="primary">Edit your Profile</Button>
+                <Row>
+                  <Col>
+                    <Button variant="outline-primary">Edit your Profile</Button>
+                  </Col>
+                  <Col>
+                  {me.github ? (
+                    <>
+                      <Card.Text as="h1" className="dark-grey-text"> 
+                      <ExternalLink href={`http://www.github.com/${me.github}`} >
+                        < AiFillGithub  />
+                      </ ExternalLink>
+                      </Card.Text>
+                    </>
+                    ):(
+                    null )}
+                  </Col>
+                </Row>
               </Card.Body>
             </Card>
           </Col>

@@ -28,7 +28,7 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    loginCall({ email: email, password: password }, dispatch);
+    loginCall({ email: email.toLowerCase(), password: password }, dispatch);
   };
 
   return (
@@ -43,6 +43,7 @@ const Login = () => {
           </h3>
         </div>
       </div>
+    
       <div className="vertical-center white-bg top-10vh">
         <Row className="full-width">
           <Col xs={3}></Col>
@@ -97,5 +98,4 @@ const Login = () => {
     </>
   );
 };
-
 export default Login;

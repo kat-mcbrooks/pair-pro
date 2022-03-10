@@ -6,6 +6,7 @@ export const loginCall = async (userCredentials, dispatch) => {
   try {
     const res = await axios.post("/api/users/login", userCredentials);
     console.log("res.data within loginCall" + res.data);
+
     localStorage.setItem("user", JSON.stringify(res.data));
     localStorage.setItem("userToken", res.data.token);
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data });

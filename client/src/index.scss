@@ -30,7 +30,7 @@ body {
   background-position-y: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 95vh;
 }
 
 .home-banner-text {
@@ -86,6 +86,10 @@ body {
   width: 98%;
 }
 
+a:hover, a:link, a:visited , a:active  {
+  color: #343434;
+}
+
 $theme-colors: (
     "success": #00c2cb, 
     "info": #5ec9cc,
@@ -132,12 +136,23 @@ $theme-colors: (
   background-color: #343434;
 }
 
+.dark-grey-text {
+  color: #343434;
+}
+
 .white-bg {
   background-color: white;
 }
 
 .white-text {
   color: white;
+}
+
+.thin-grey-border {
+  border-style: solid;
+  border-color: #c0c0c0;
+  border-width: 1px;
+  border-radius: 5px;
 }
 
 .courier {

@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 import Conversation from "./Conversation";
 import Message from "./Message";
 import { io } from "socket.io-client";
+import ProfileCardSmall from "./ProfileCardSmall";
 
 const ChatPage = () => {
   const { state } = useContext(AuthContext);

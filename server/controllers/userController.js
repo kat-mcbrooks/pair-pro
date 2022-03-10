@@ -12,7 +12,8 @@ const getUsers = asyncHandler(async (req, res) => {
 
 // Register new user || route: POST /api/users || access: Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, languages, bio, image } = req.body;
+
+  const { name, email, password, languages, bio, github, image } = req.body
 
   if (!name || !email || !password || !languages || !bio || !image) {
     res.status(400);
@@ -32,15 +33,15 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   // Create user
-  const lowerCaseEmail = email.toLowerCase();
   const user = await User.create({
     name,
-    email: lowerCaseEmail,
+    email,
     password: hashedPassword,
     languages,
     bio,
-    image,
-  });
+    github,
+    image
+  })
 
   if (user) {
     res.status(201).json({
@@ -78,10 +79,8 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // Get Logged in User's Data || route: GET /api/users/me || access: Private
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, name, email, languages, bio, image } = await User.findById(
-    req.user.id
-  );
   // req.user is set in authMiddleware
+  const { _id, name, email, languages, bio, github, image } = await User.findById(req.user.id)
 
   res.status(200).json({
     id: _id,
@@ -89,15 +88,14 @@ const getMe = asyncHandler(async (req, res) => {
     email,
     languages,
     bio,
-    image,
-  });
-});
+    github,
+    image
+  })
+})
 
 // Find a Specific User's Data || route: GET /api/users/:userId || access: Public
 const findUser = asyncHandler(async (req, res) => {
-  const { _id, name, email, languages, bio } = await User.findById(
-    req.params.id
-  );
+  const { _id, name, email, languages, bio, github, image } = await User.findById(req.params.id)
 
   res.status(200).json({
     id: _id,
@@ -105,8 +103,17 @@ const findUser = asyncHandler(async (req, res) => {
     email,
     languages,
     bio,
-  });
-});
+    github,
+    image
+  })
+})
+
+const getUsersByLanguage = asyncHandler(async (req, res) => {
+  const languageUsers = await User.find({ languages: {$regex: req.params.language, $options: 'i'} })
+
+    res.status(200).json(languageUsers)
+  }
+)
 
 // Generate JWT
 const generateToken = (id) => {
@@ -121,4 +128,5 @@ module.exports = {
   loginUser,
   getMe,
   findUser,
-};
+  getUsersByLanguage
+}
