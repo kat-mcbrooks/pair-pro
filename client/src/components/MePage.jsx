@@ -46,9 +46,11 @@ const Me = () => {
           </Col>
           <Col md={5}>
             <Card className="me-card">
-              <Card.Header>Languages: <br></br> {me.languages?.join(', ')}</Card.Header>
-              <Card.Header>Bio: <br></br> {me.bio}</Card.Header>
-              <Card.Body>
+              <Card.Header>Languages</Card.Header>
+              <Card.Body><Card.Text>{me.languages?.join(', ')}</Card.Text></Card.Body>
+              <Card.Header>Introduction</Card.Header>
+              <Card.Body><Card.Text>{me.bio}</Card.Text></Card.Body>
+              <Card.Header>
                 <Row>
                   <Col>
                     <Button variant="outline-primary">Edit your Profile</Button>
@@ -66,7 +68,7 @@ const Me = () => {
                     null )}
                   </Col>
                 </Row>
-              </Card.Body>
+              </Card.Header>
             </Card>
           </Col>
         </Row>
