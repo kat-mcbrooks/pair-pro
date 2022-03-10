@@ -55,8 +55,8 @@ const Me = () => {
           <Col md={5}>
             <Card className="me-card">
               <Card.Body>
-                <Card.Text>Languages: {me.languages}</Card.Text>
-                <Card.Text>Bio: {me.bio}</Card.Text>
+                <Card.Text>Languages: <br></br> {me.languages?.join(', ')}</Card.Text>
+                <Card.Text>Bio: <br></br> {me.bio}</Card.Text>
                 <Card.Text>GitHub: {me.github}</Card.Text>
                 <Button variant="primary">Edit your Profile</Button>
               </Card.Body>

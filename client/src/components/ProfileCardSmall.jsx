@@ -20,8 +20,8 @@ const ProfileCardSmall = ({person}) => {
       <Card.Header as="h5" bg="warning">{person.name}</Card.Header>
         <Card.Img variant="top" src={people[Math.floor(Math.random()*people.length)]} />
         <Card.Body>
-          <Card.Text>Languages: {person.languages}</Card.Text>
-          <Card.Text>Bio: {person.bio}</Card.Text>
+          <Card.Text>Languages: <br></br> {person.languages?.join(', ')}</Card.Text>
+          <Card.Text>Bio: <br></br> {person.bio}</Card.Text>
           <Row>
             <Col>
           <ChatToButton receiver={person} />
