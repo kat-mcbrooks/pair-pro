@@ -19,10 +19,12 @@ const ProfileCardSmall = ({person}) => {
       <Card className="card" border="warning" >
       <Card.Header as="h5" bg="warning">{person.name}</Card.Header>
         <Card.Img variant="top" src={people[Math.floor(Math.random()*people.length)]} />
-        <Card.Body>
-          <Card.Text>Languages: <br></br> {person.languages?.join(', ')}</Card.Text>
-          <Card.Text>Bio: <br></br> {person.bio}</Card.Text>
+        {/* <Card.Body> */}
+          <Card.Header>Languages: <br></br> {person.languages?.join(', ')}</Card.Header>
+          <Card.Header>Bio: <br></br> {person.bio}</Card.Header>
+          <Card.Body>
           <Row>
+           
             <Col>
           <ChatToButton receiver={person} />
           </Col>
@@ -34,13 +36,14 @@ const ProfileCardSmall = ({person}) => {
               < AiFillGithub  />
             </ ExternalLink>
           </Card.Text>
-          <Card.Text className="text-center text-muted">Github</Card.Text>
+          {/* <Card.Text className="text-center text-muted">Github</Card.Text> */}
           </>
           ):(
           null )}
           </Col>
           </Row>
-        </Card.Body>
+          </Card.Body>
+        {/* </Card.Body> */}
       </Card>
       <br></br>
     </Col>
