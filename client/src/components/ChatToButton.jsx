@@ -10,11 +10,12 @@ const ChatToButton = ({ receiver }) => {
   const navigate = useNavigate();
 
   const startConversation = async ( userId, receiverId ) => {
+    {console.log(userId)}
     try {
       const res = await axios.get(`/api/conversations/find/${userId}/${receiverId}`);
       const conversationId = res.data?._id
-      console.log(res.data)
-      console.log(conversationId)
+      // console.log(res.data)
+      // console.log(conversationId)
       if(conversationId) {
         navigate(`/chat/${conversationId}`);
       } else {
@@ -36,7 +37,8 @@ const ChatToButton = ({ receiver }) => {
   }
   
   return (
-    <Button onClick={() => startConversation(state.user._id, receiver._id)} variant="primary" >{`Chat to ${receiver?.name}`}</Button>
+    <Button onClick={() => startConversation(state.user._id, receiver._id)} 
+    variant="outline-info" >{`Chat to ${receiver.name.split(" ")[0]}`}</Button>
   )
 }
 
