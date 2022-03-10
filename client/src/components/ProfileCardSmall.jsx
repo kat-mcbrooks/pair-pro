@@ -27,12 +27,17 @@ const ProfileCardSmall = ({person}) => {
           <ChatToButton receiver={person} />
           </Col>
           <Col>
+          {person.github ? (
+            <>
           <Card.Text as="h1" className="dark-grey-text"> 
             <ExternalLink href={`http://www.github.com/${person.github}`} >
               < AiFillGithub  />
             </ ExternalLink>
           </Card.Text>
           <Card.Text className="text-center text-muted">Github</Card.Text>
+          </>
+          ):(
+          null )}
           </Col>
           </Row>
         </Card.Body>

@@ -25,7 +25,6 @@ const userSchema = mongoose.Schema(
     },
     github: {
       type: String,
-      required: [true, 'Please add your Github account']
     }
   },
   {

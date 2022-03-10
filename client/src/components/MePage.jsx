@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import { ExternalLink } from 'react-external-link';
+import { AiFillGithub } from 'react-icons/ai';
 import robot from "../assets/robot.png";
 import person1 from "../assets/people/1.jpeg"
 import person2 from "../assets/people/2.jpeg"
@@ -57,8 +59,24 @@ const Me = () => {
               <Card.Body>
                 <Card.Text>Languages: <br></br> {me.languages?.join(', ')}</Card.Text>
                 <Card.Text>Bio: <br></br> {me.bio}</Card.Text>
-                <Card.Text>GitHub: {me.github}</Card.Text>
-                <Button variant="primary">Edit your Profile</Button>
+                <Row>
+                  <Col>
+                    <Button variant="primary">Edit your Profile</Button>
+                  </Col>
+                  <Col>
+                  {me.github ? (
+                    <>
+                      <Card.Text as="h1" className="dark-grey-text"> 
+                      <ExternalLink href={`http://www.github.com/${me.github}`} >
+                        < AiFillGithub  />
+                      </ ExternalLink>
+                      </Card.Text>
+                      <Card.Text className="text-center text-muted">Github</Card.Text>
+                    </>
+                    ):(
+                    null )}
+                  </Col>
+                </Row>
               </Card.Body>
             </Card>
           </Col>
