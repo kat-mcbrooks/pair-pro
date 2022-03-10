@@ -74,6 +74,14 @@ body {
   height: 70vh;
 }
 
+.height-max70px {
+  max-height: 60px;
+}
+
+.height-max150px {
+  max-height: 170px;
+}
+
 .scroll {
   overflow-y: scroll;
 }
@@ -94,7 +102,7 @@ $theme-colors: (
     "success": #00c2cb, 
     "info": #5ec9cc,
     "danger": #f9a72c,
-    "warning": #ffbd59,
+    "warning": #ff00ff,
     "primary": #8c52ff,
     "dark": #343434
 );
