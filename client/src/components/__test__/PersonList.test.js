@@ -1,19 +1,16 @@
 import React from 'react'
-import PersonList from '../PersonList'
+import PairProsPage from '../PairProsPage'
 import { render, screen } from '@testing-library/react'
 import "@testing-library/jest-dom/extend-expect"
 
-test('PersonList renders with correct text', () => {
-    render(<PersonList />);
+test('PairProsPage renders with correct text', () => {
+    render(<PairProsPage />);
 
-    const nameEl = screen.getByTestId("name");
-    expect(nameEl.textContent).toBe('')  
+    const nameEl = screen.getByTestId("welcometext");
+    expect(nameEl.textContent).toBe('Welcome to PairPro'); 
+    const pairEl = screen.getByTestId("pairtext");
+    expect(pairEl.textContent).toBe('find yourself a pair!'); 
     
 })
 
-// test('PersonList renders with correct text', () => {
-//     render(<PersonList />);
 
-//     const nameEl = screen.getByTestId("name");
-//     expect(nameEl.textContent).toBe("Name: ")   
-// })

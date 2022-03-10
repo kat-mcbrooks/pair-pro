@@ -4,6 +4,7 @@ import HomeCards from './HomeCards'
 const Home = () => {
   return (
     <>
+    <div data-testid= "header">
       <div className='home-banner-image'>
         <div className='home-banner-text'>
           <h1 className='white-text varela'>PairPro</h1>
@@ -12,6 +13,7 @@ const Home = () => {
           <h5 className='white-text'>We won't REST until you find your</h5>
           <h5 className='white-text'>IDEal Pair Programming Partners</h5>
         </div>
+      </div>
       </div>
       <HomeCards />
     </>
