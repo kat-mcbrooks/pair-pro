@@ -25,6 +25,12 @@ const userSchema = mongoose.Schema(
     },
     github: {
       type: String,
+    },
+    image: {
+      type: String,
+      image: Buffer,
+      required: [true, 'Please add a profile picture'],
+      default: ""
     }
   },
   {

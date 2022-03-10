@@ -7,15 +7,15 @@ const Footer = () => {
       <Navbar.Brand >DreamTeam22</Navbar.Brand>
         <Nav>
    
-          <p>Javascript</p>
-          <p>...</p>
-          <p>Ruby</p>
-          <p>...</p>
-          <p>Python</p>
-          <p>...</p>
-          <p>C#</p>
-          <p>...</p>
-          <p>C++</p>
+          <p><img src="https://img.icons8.com/fluency/48/000000/ruby-programming-language.png"/></p>
+          <p><img src="https://img.icons8.com/color/48/000000/php.png"/></p>
+          <p><img src="https://img.icons8.com/color/48/000000/c-programming.png"/></p>
+          <p><img src="https://img.icons8.com/color/48/000000/kotlin.png"/></p>
+          <p><img src="https://img.icons8.com/color/48/000000/perl.png"/></p>
+          <p><img src="https://img.icons8.com/color/48/000000/python--v1.png"/></p>
+          <p><img src="https://img.icons8.com/ios-filled/50/000000/javascript-logo.png"/></p>
+          <p><img src="https://img.icons8.com/color/48/000000/c-sharp-logo.png"/></p>
+          <p><img src="https://img.icons8.com/color/50/000000/swift.png"/></p>
 
         </Nav>
     </Container>

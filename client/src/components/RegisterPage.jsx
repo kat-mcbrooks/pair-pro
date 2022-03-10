@@ -4,8 +4,8 @@ import { AuthContext } from "../context/AuthContext";
 import { registerCall } from "../apiCalls";
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
-// import Languages from './Languages';
-// import Level from './Level';
+import FileBase64 from 'react-file-base64';
+
 
 
 const Register = () => {
@@ -20,9 +20,10 @@ const Register = () => {
     languages: [],
     bio: "",
     github: "",
+    image: ""
   });
 
-  const { name, email, password, password2, languages, bio, github } = formData;
+  const { name, email, password, password2, languages, bio, github, image } = formData;
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -44,6 +45,7 @@ const Register = () => {
         languages,
         bio,
         github,
+        image
       };
       console.log(userData)
       registerCall(userData, dispatch); //calls api in separate file
@@ -57,15 +59,15 @@ const Register = () => {
   const [languagesValue] = useState();
   const [bioValue] = useState();
   const [githubValue] = useState();
+  const [imageValue] = useState(); 
 
   const languageList = ['JavaScript', 'Ruby', 'Python']
   
-
   return (
     <>
       <div className="sml-banner-image">
         <div className="dark-grey-bg white-text full-width">
-          <h1 className="varela" data-testid="register text">
+          <h1 className="courier" data-testid="register text">
             Sign Up Here
           </h1>
           <h3 className="courier" data-testid="register phrase">
@@ -131,18 +133,7 @@ const Register = () => {
             />
           </Form.Group>
 
-          {/* <Form.Group data-testid="languages input" className="form-group mb-3" controlId="formBasicEmail">
-            <Form.Label className="white-bg">Languages</Form.Label>
-            <Form.Control 
-              type="text" 
-              id='languages'
-              name='languages'
-              value={languagesValue}
-              placeholder='What languages do you use or are learning?' 
-              onChange={onChange} />
-          </Form.Group> */}
-
-          <Form.Group data-testid="bio input" className="form-group mb-3" controlId="formBasicEmail">
+          <Form.Group data-testid="languages input" className="form-group mb-3" controlId="formBasicLanguages">
             <Form.Label className="white-bg">Languages</Form.Label>
             <div className="white-bg thin-grey-border muted-text">
               <DropdownMultiselect
@@ -162,8 +153,7 @@ const Register = () => {
             </div>
           </Form.Group>
 
-
-          <Form.Group data-testid="bio input" className="form-group mb-3" controlId="formBasicEmail">
+          <Form.Group data-testid="bio input" className="form-group mb-3" controlId="formBasicBio">
             <Form.Label className="white-bg">Bio</Form.Label>
             <Form.Control 
               type="text" 
@@ -174,7 +164,7 @@ const Register = () => {
               onChange={onChange} />
           </Form.Group>
 
-          <Form.Group data-testid="github input" className="form-group mb-3" controlId="formBasicEmail">
+          <Form.Group data-testid="github input" className="form-group mb-3" controlId="formBasicGithub">
             <Form.Label className="white-bg">Github</Form.Label>
             <Form.Control 
               type="text" 
@@ -184,18 +174,28 @@ const Register = () => {
               placeholder='Add GitHub account user name eg. pair-pro' 
               onChange={onChange} />
           </Form.Group>
+          
+           
+          <Form.Group data-testid="image input" className="form-group mb-3" controlId="formBasicImage">
+            <Form.Label className="white-bg">Github</Form.Label>
+              <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}
+                value={imageValue}
+                placeholder="Show us your lovely face"
+                onChange={onChange}
+            </Form.Group>
 
-          {/* <Languages  languagesValue={languagesValue}/>
-          <Level /> */}
           <Button variant="primary" type="submit" data-testid="add-btn">
           Join
           </Button>
         </Form>
         <br></br>
-        </Col>
-        <Col></Col>
-      </Row>
-</>
+      </Col>
+      <Col></Col>
+    </Row>
+    </>
   );
 };
 

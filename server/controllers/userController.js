@@ -12,10 +12,9 @@ const getUsers = asyncHandler(async (req, res) => {
 
 // Register new user || route: POST /api/users || access: Public 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, languages, bio, github } = req.body
-  
+  const { name, email, password, languages, bio, github, image } = req.body
 
-  if(!name || !email || !password || !languages || !bio) {
+  if(!name || !email || !password || !languages || !bio || !image )  {
     res.status(400)
     throw new Error('Please complete all fields')
   }
@@ -39,7 +38,8 @@ const registerUser = asyncHandler(async (req, res) => {
     password: hashedPassword,
     languages,
     bio,
-    github
+    github,
+    image
   })
 
   if(user) {
@@ -78,8 +78,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // Get Logged in User's Data || route: GET /api/users/me || access: Private
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, name, email, languages, bio, github } = await User.findById(req.user.id)
-  // req.user is set in authMiddleware
+  const { _id, name, email, languages, bio, github, image } await User.findById(req.user.id)
 
   res.status(200).json({
     id: _id,
@@ -87,13 +86,14 @@ const getMe = asyncHandler(async (req, res) => {
     email,
     languages,
     bio,
-    github
+    github,
+    image
   })
 })
 
 // Find a Specific User's Data || route: GET /api/users/:userId || access: Public
 const findUser = asyncHandler(async (req, res) => {
-  const { _id, name, email, languages, bio, github } = await User.findById(req.params.id)
+  const { _id, name, email, languages, bio, github, image } = await User.findById(req.params.id)
 
   res.status(200).json({
     id: _id,
@@ -101,7 +101,8 @@ const findUser = asyncHandler(async (req, res) => {
     email,
     languages,
     bio,
-    github
+    github,
+    image
   })
 })
 

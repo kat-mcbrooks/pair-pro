@@ -42,7 +42,9 @@ const PersonList = () => {
     <>
       <div className="sml-banner-image-teal">
         <div className="dark-grey-bg white-text full-width courier">
-          <h2>Welcome to PairPro</h2> <h4>find yourself a pair!</h4>
+          <h2> Welcome to PairPro
+          </h2> 
+          <h4>Pick a pair and let's get coding!</h4>
         </div>
       </div>
       <Row>
@@ -66,7 +68,9 @@ const PersonList = () => {
         <Container fluid>
           <Row xs={1} sm={2} md={3} lg={4} xl={5}>
             {persons.map((person) => (
+
               <ProfileCardSmall person={person}/>
+
             ))}
           </Row>
         </Container>
