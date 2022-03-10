@@ -28,7 +28,8 @@ const Me = () => {
     <>
     <div className="sml-banner-image">
       <div className="dark-grey-bg white-text  full-width courier">
-        <h2>Hi, {me.name}!</h2> <h4>dont't forget to add any new languages</h4>
+        <h2>Nice profile, {me.name}!</h2> 
+        <h5>Keep it up-to-date so potential pairs know what you're learning</h5>
       </div>
     </div>
     <div data-testid="person-cards" className="card-container">

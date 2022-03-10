@@ -57,7 +57,7 @@ const Register = () => {
     <>
       <div className="sml-banner-image">
         <div className="dark-grey-bg white-text full-width">
-          <h1 className="varela" data-testid="register text">
+          <h1 className="courier" data-testid="register text">
             Sign Up Here
           </h1>
           <h3 className="courier" data-testid="register phrase">
