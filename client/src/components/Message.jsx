@@ -30,9 +30,8 @@ const Message = ({ message, own }) => {
           </Col>
             <Col xs={2}></Col>
             </>
-   
         )}
-               </Row>
+       </Row>
     
     </>
 

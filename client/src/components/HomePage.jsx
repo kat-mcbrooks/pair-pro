@@ -1,5 +1,6 @@
 import React from 'react'
 import HomeCards from './HomeCards'
+import logoPic from '../assets/home-logo-white.png'
 
 const Home = () => {
   return (
@@ -7,7 +8,9 @@ const Home = () => {
     <div data-testid= "header">
       <div className='home-banner-image'>
         <div className='home-banner-text'>
-          <h1 className='white-text varela'>PairPro</h1>
+          <div className='text-center'>
+            <img className="height-max150px" src={logoPic} alt="Pair Pro Logo" />
+          </div>
           <br></br>
           <h3 className='dark-orange-text courier'>Hello, world!</h3>
           <h5 className='white-text'>We won't REST until you find your</h5>

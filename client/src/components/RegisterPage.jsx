@@ -62,7 +62,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="sml-banner-image">
+      <div className="sml-banner-image-teal">
         <div className="dark-grey-bg white-text full-width">
           <h1 className="courier" data-testid="register text">
             Sign Up Here
@@ -145,71 +145,36 @@ const Register = () => {
                 placeholder="Confirm your password"
                 onChange={onChange}
               />
-            </Form.Group>
+          </Form.Group>
 
-            <Form.Group
-              data-testid="languages input"
-              className="form-group mb-3"
-              controlId="formBasicLanguages"
-            >
-              <Form.Label className="white-bg">Languages</Form.Label>
-              <div className="white-bg thin-grey-border muted-text">
-                <DropdownMultiselect
-                  bg="white"
-                  options={languageList}
-                  name="languages"
-                  id="languages-input"
-                  value={languagesValue}
-                  placeholder="What languages do you use or are learning?"
-                  handleOnChange={(selected) => {
-                    setFormData((prevState) => ({
-                      ...prevState,
-                      languages: selected,
-                    }));
-                  }}
-                />
-              </div>
-            </Form.Group>
+          <Form.Group data-testid="bio input" className="form-group mb-3" controlId="formBasicBio">
+            <Form.Label className="white-bg">Bio</Form.Label>
+            <Form.Control 
+              type="text" 
+              data-cy="bio-input"
+              name='bio'
+              value={bioValue}
+              placeholder='Tell everyone a bit about yourself' 
+              onChange={onChange} />
+          </Form.Group>
 
-            <Form.Group
-              data-testid="bio input"
-              className="form-group mb-3"
-              controlId="formBasicBio"
-            >
-              <Form.Label className="white-bg">Bio</Form.Label>
-              <Form.Control
-                type="text"
-                name="bio"
-                data-cy="bio-input"
-                value={bioValue}
-                placeholder="Tell everyone a bit about yourself"
-                onChange={onChange}
-              />
-            </Form.Group>
-
-            <Form.Group
-              data-testid="github input"
-              className="form-group mb-3"
-              controlId="formBasicGithub"
-            >
-              <Form.Label className="white-bg">Github</Form.Label>
-              <Form.Control
-                type="text"
-                name="github"
-                data-cy="github-input"
-                value={githubValue}
-                placeholder="Add GitHub account user name eg. pair-pro"
-                onChange={onChange}
-              />
-            </Form.Group>
-
-            <Form.Group
-              data-testid="image input"
-              className="form-group mb-3"
-              controlId="formBasicImage"
-            >
-              <Form.Label className="white-bg">Github</Form.Label>
+          <Form.Group data-testid="github input" className="form-group mb-3" controlId="formBasicGithub">
+            <Form.Label className="white-bg">Github</Form.Label>
+            <Form.Control 
+              type="text" 
+              data-cy="github-input"
+              name='github'
+              value={githubValue}
+              placeholder='Add GitHub account user name eg. pair-pro' 
+              onChange={onChange} />
+          </Form.Group>
+          
+           
+          <Form.Group data-testid="image input" className="form-group mb-3" controlId="formBasicImage">
+            <Form.Label className="white-bg">Profile Picture</Form.Label>
+            <div className="white-bg thin-grey-border muted-text">
               <FileBase64
+
                 type="file"
                 data-cy="file-upload"
                 multiple={false}
@@ -220,16 +185,17 @@ const Register = () => {
                 placeholder="Show us your lovely face"
                 onChange={onChange}
               />
-            </Form.Group>
+              </div>
+          </Form.Group>
 
-            <Button variant="primary" type="submit" data-testid="add-btn">
-              Join
-            </Button>
-          </Form>
-          <br></br>
-        </Col>
-        <Col></Col>
-      </Row>
+          <Button variant="primary" type="submit" data-testid="add-btn">
+          Join
+          </Button>
+        </Form>
+        <br></br>
+      </Col>
+      <Col></Col>
+    </Row>
     </>
   );
 };
