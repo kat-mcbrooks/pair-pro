@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
+import { ExternalLink } from 'react-external-link';
+import { AiFillGithub } from 'react-icons/ai';
 
 const Me = () => {
   const [me, setMe] = useState([]);
@@ -44,10 +46,26 @@ const Me = () => {
           </Col>
           <Col md={5}>
             <Card className="me-card">
+              <Card.Header>Languages: <br></br> {me.languages?.join(', ')}</Card.Header>
+              <Card.Header>Bio: <br></br> {me.bio}</Card.Header>
               <Card.Body>
-                <Card.Text>Languages: {me.languages}</Card.Text>
-                <Card.Text>Bio: {me.bio}</Card.Text>
-                <Button variant="primary">Edit your Profile</Button>
+                <Row>
+                  <Col>
+                    <Button variant="outline-primary">Edit your Profile</Button>
+                  </Col>
+                  <Col>
+                  {me.github ? (
+                    <>
+                      <Card.Text as="h1" className="dark-grey-text"> 
+                      <ExternalLink href={`http://www.github.com/${me.github}`} >
+                        < AiFillGithub  />
+                      </ ExternalLink>
+                      </Card.Text>
+                    </>
+                    ):(
+                    null )}
+                  </Col>
+                </Row>
               </Card.Body>
             </Card>
           </Col>
