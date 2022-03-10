@@ -40,11 +40,13 @@ const PersonList = () => {
 
   return (
     <>
+
       <div className="sml-banner-image-teal">
         <div className="dark-grey-bg white-text full-width courier">
-          <h2> Welcome to PairPro
+          <h2 data-testid="welcometext"> Welcome to PairPro
           </h2> 
-          <h4>Pick a pair and let's get coding!</h4>
+          <h4 data-testid="pairtext">Pick a pair and let's get coding!</h4>
+
         </div>
       </div>
       <Row>

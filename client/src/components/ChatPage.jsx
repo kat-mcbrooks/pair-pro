@@ -126,6 +126,7 @@ const ChatPage = () => {
               style={{ cursor: "pointer" }}
               className="text-right"
             >
+             
               <Conversation
                 conversation={conversation}
                 currentUser={state.user}
@@ -139,6 +140,8 @@ const ChatPage = () => {
         {messages.map((message) => (
           <div ref={scrollRef}>
           <Message
+            className="message-display"
+            // data-cy="message-display"
             message={message}
             own={state.user._id === message.senderId}
         
@@ -150,6 +153,7 @@ const ChatPage = () => {
           <Form className="message-submit">
             <Form.Group>
               <Form.Control
+                id="messageinputfield"
                 as="textarea"
                 rows={3}
                 onChange={(e) => setNewMessage(e.target.value)}

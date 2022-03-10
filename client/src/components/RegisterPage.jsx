@@ -179,6 +179,7 @@ const Register = () => {
             <Form.Label className="white-bg">Github</Form.Label>
               <FileBase64
                 type="file"
+                data-cy="file-upload"
                 multiple={false}
                 onDone={({ base64 }) => setFormData({ ...formData, image: base64 })}
                 value={imageValue}
@@ -195,6 +196,7 @@ const Register = () => {
       </Col>
       <Col></Col>
     </Row>
+
     </>
   );
 };
