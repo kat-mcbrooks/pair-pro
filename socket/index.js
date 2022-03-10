@@ -24,14 +24,12 @@ const getUser = (userId) => {
 io.on("connection", (socket) => {
   //when a user connects
   console.log("a user connected.");
-  // console.log(`after a user connects ${users}`);
   //take user id and socket id from user
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
     io.emit("getUsers", users);
   });
-  console.log(`after a user added ${users}`);
-  console.log(users);
+  console.log("users array after socket.on('addUser'):" + users);
 
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, messageBody }) => {
@@ -49,4 +47,3 @@ io.on("connection", (socket) => {
     io.emit("getUsers", users);
   });
 });
-// io.to(si)("welcome", "this is a socket server")});

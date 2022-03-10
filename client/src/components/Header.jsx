@@ -17,7 +17,7 @@ const Header = () => {
   return (
   <Navbar fluid='true' className={bgColor} variant={logoColor} sticky={sticky}>
     <Container>
-      <Navbar.Brand href={logoLink}>PairPro</Navbar.Brand>
+      <Navbar.Brand className="varela"href={logoLink}>PairPro</Navbar.Brand>
       <Nav>
         {state.isLoggedIn ? (
           <>
