@@ -38,7 +38,7 @@ const ChatToButton = ({ receiver }) => {
   
   return (
     <Button onClick={() => startConversation(state.user._id, receiver._id)} 
-    variant="outline-info" >Chat to<br></br>{`${receiver?.name.split(" ")[0]}`}</Button>
+    variant="outline-info" >{`Chat to ${receiver.name.split(" ")[0]}`}</Button>
   )
 }
 

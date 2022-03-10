@@ -56,12 +56,12 @@ const Me = () => {
           </Col>
           <Col md={5}>
             <Card className="me-card">
+              <Card.Header>Languages: <br></br> {me.languages?.join(', ')}</Card.Header>
+              <Card.Header>Bio: <br></br> {me.bio}</Card.Header>
               <Card.Body>
-                <Card.Text>Languages: <br></br> {me.languages?.join(', ')}</Card.Text>
-                <Card.Text>Bio: <br></br> {me.bio}</Card.Text>
                 <Row>
                   <Col>
-                    <Button variant="primary">Edit your Profile</Button>
+                    <Button variant="outline-primary">Edit your Profile</Button>
                   </Col>
                   <Col>
                   {me.github ? (
@@ -71,7 +71,6 @@ const Me = () => {
                         < AiFillGithub  />
                       </ ExternalLink>
                       </Card.Text>
-                      <Card.Text className="text-center text-muted">Github</Card.Text>
                     </>
                     ):(
                     null )}
