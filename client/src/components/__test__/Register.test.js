@@ -47,7 +47,7 @@ test("Confirm password input field", () => {
 
 test("Languages input field", () => {
   render(<RegisterPage />);
-  const inputEl = screen.getByTestId("languages input");
+  const inputEl = screen.getByTestId("languages-input");
 
   expect(inputEl.value).toBe();
 });
