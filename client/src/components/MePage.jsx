@@ -3,8 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
-import { ExternalLink } from 'react-external-link';
-import { AiFillGithub } from 'react-icons/ai';
+import { ExternalLink } from "react-external-link";
+import { AiFillGithub } from "react-icons/ai";
 
 const Me = () => {
   const [me, setMe] = useState([]);
@@ -28,6 +28,7 @@ const Me = () => {
 
   return (
     <>
+
     <div className="sml-banner-image-teal">
       <div className="dark-grey-bg white-text  full-width courier">
         <h2>Nice profile, {me.name}!</h2> 
@@ -53,7 +54,7 @@ const Me = () => {
               <Card.Header>
                 <Row>
                   <Col>
-                    <Button variant="outline-primary">Edit your Profile</Button>
+                    <Button data-cy="edit-btn" variant="outline-primary">Edit your Profile</Button>
                   </Col>
                   <Col>
                   {me.github ? (
