@@ -16,12 +16,21 @@ const userSchema = mongoose.Schema(
       required: [true, 'Please add a password']
     },
     languages: {
-      type: String,
+      type: Array,
       required: [true, 'Please add at least one language you know, or will be learning']
     },
     bio: {
       type: String,
       required: [true, 'Please tell everyone a little about yourself']
+    },
+    github: {
+      type: String,
+    },
+    image: {
+      type: String,
+      image: Buffer,
+      required: [true, 'Please add a profile picture'],
+      default: ""
     }
   },
   {
