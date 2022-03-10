@@ -9,6 +9,7 @@ const res = require("express/lib/response");
 
 const app = express();
 
+
 //CORS is a necessary security mechanism that allows a web page from one domain or Origin to access a resource with a different domain
 app.use(cors()); 
 app.use(express.json({ limit: (1024 * 1024) * 4 })); // increasing the size limit to 4MB
