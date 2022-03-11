@@ -60,7 +60,9 @@ const Me = () => {
                   {me.github ? (
                     <>
                       <Card.Text as="h1" className="dark-grey-text"> 
-                      <ExternalLink href={`http://www.github.com/${me.github}`} >
+                      <ExternalLink 
+                      data-cy="github-link"
+                      href={`http://www.github.com/${me.github}`} >
                         < AiFillGithub  />
                       </ ExternalLink>
                       </Card.Text>
