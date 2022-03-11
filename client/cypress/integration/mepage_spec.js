@@ -14,4 +14,8 @@ describe("MyProfile", () => {
     cy.get("h2").should("have.text", "Nice profile, Silvia!");
     cy.get("[data-cy=edit-btn]").should("have.text", "Edit your Profile");
   });
+  
+  it("user profile has link to github", () => {
+    cy.get("[data-cy=github-link]").click();
+  });
 });
