@@ -1,11 +1,43 @@
-# pair-pro
+# PairPro - connecting you with your ideal pair partner!
+**React | Express | Node | MongoDB | JavaScript**
+**Cypress | React Testing Library | Jest | Postman**
+**Heroku | GitHub actions•• 
+
+MERN-built web app that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise.
+
+### Features implemented
+Server-side user authentication using JWT and BCrypt. 
+Express error handler to 
 
 
+### How to run the PairPro app
+1. Install dependencies using yarn or npm install
+2. You will need an .env file with the following environment variables:
+   - ATLAS_URI = <your URI> for the MongoDB connection
+   - PORT = 5000 (or alternative port number for the backend
+   - NODE_ENV = DEVELOPMENT or NODE_ENV = PRODUCTION
+   - JWT_SECRET = <your JWT secret> for authentication
+4. To run the backend, frontend and socket servers concurrently, type: 
+  ```yarn run dev``` 
+5. Or, you can access the app at https://pairpro2022.herokuapp.com/
+
+### To run tests
+```$ yarn run test```
+and for cypress end-to-end tests(you will need to have downloaded cypress):
 ```
-MVP USER STORIES
+  $ yarn run dev
+  $ yarn run cypress open
+```
+nb: I carried out backend API testing using Postman. Please find further screenshots in the assets folder. 
+  
+  
+### User stories and features
+```
 As a user,
 So I can access the pair programming website,
 I would like to sign up.
+```
+```
 As a user, 
 So my profile can be remembered,
 I would like to sign in.
