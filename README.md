@@ -1,13 +1,19 @@
 # PairPro - connecting you with your ideal pair partner!
-**React | Express | Node | MongoDB | JavaScript**
+**React | Express | Node | MongoDB | JavaScript | Socket.IO**
 **Cypress | React Testing Library | Jest | Postman**
-**Heroku | GitHub actions•• 
+**Heroku | GitHub actions** 
 
-MERN-built web app that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise.
+MERN-built web app, with real-time chat using Socket.IO, that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise.
 
-### Features implemented
-Server-side user authentication using JWT and BCrypt. 
-Express error handler to 
+### Features
+* User profile contains languages, link to GitHub and profile picture
+* User can filter to find other users by language
+* Frontend user authentication using useReducer, useContext hooks and a authContext.Provider to manage state. See Context directory. (We chose not to tackle redux in this project, as we were all new to React and were advised against redux)
+* Socket.IO real-time chat: User can chat with other online users, or leave a message if the user is offline
+* Server-side user authentication using JWT and BCrypt. 
+* Frontend errors using Toast for example if user enters incorrect email password combination
+* Error middleware set up in backend to override the default Express error handler. It means we can set up our own error messages and show the stacktrace if in development.
+* Express async handler package so that we use the error handler instead of needing try catch with async await functions.
 
 
 ### How to run the PairPro app
@@ -23,14 +29,15 @@ Express error handler to
 
 ### To run tests
 ```$ yarn run test```
-and for cypress end-to-end tests(you will need to have downloaded cypress):
+
+   and for cypress end-to-end tests(you will need to have downloaded cypress):
 ```
   $ yarn run dev
   $ yarn run cypress open
 ```
 nb: I carried out backend API testing using Postman. Please find further screenshots in the assets folder. 
   
-  
+![people-page](/client/assets/images/ 
 ### User stories and features
 ```
 As a user,
