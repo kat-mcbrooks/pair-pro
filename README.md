@@ -1,7 +1,9 @@
 # PairPro - connecting you with your ideal pair partner!
 
-**React | Express | Node | MongoDB | JavaScript | Socket.IO**
+**React | Express | Node.js | MongoDB | JavaScript | Socket.IO** 
+
 **Cypress | React Testing Library | Jest | Postman**
+
 **Heroku | GitHub actions**
 
 MERN-built web app, with real-time chat using Socket.IO, that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise. 
