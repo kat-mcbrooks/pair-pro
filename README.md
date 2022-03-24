@@ -4,7 +4,7 @@
 **Cypress | React Testing Library | Jest | Postman**
 **Heroku | GitHub actions**
 
-MERN-built web app, with real-time chat using Socket.IO, that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise.
+MERN-built web app, with real-time chat using Socket.IO, that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise. 
 
 ### Features
 
@@ -30,20 +30,21 @@ MERN-built web app, with real-time chat using Socket.IO, that connects software 
 4. Or, you can access the app at https://pairpro2022.herokuapp.com/
 
 ### To run tests
-
+```
 `$ yarn run test`
-
+```
 and for cypress end-to-end tests(you will need to have downloaded cypress):
 
 ```
   $ yarn run dev
   $ yarn run cypress open
 ```
-
-nb: I carried out backend API testing using Postman. Please find further screenshots in the assets folder.
-
-![people-page](./assets/images/people-list-page.png)
-![chat-page](./assets/images/chat-page.png)
+nb: I carried out backend API testing using Postman. 
+   
+### App screenshots (please see further screenshots in the assets directory)
+   
+![people-page](./assets/images/people-list-page.PNG)
+![chat-page](./assets/images/chat-page.PNG)
 
 ### User stories and features
 
