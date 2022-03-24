@@ -42,7 +42,8 @@ and for cypress end-to-end tests(you will need to have downloaded cypress):
 
 nb: I carried out backend API testing using Postman. Please find further screenshots in the assets folder.
 
-![people-page](/client/assets/images/people-list-page.png)
+![people-page](./assets/images/people-list-page.png)
+![chat-page](./assets/images/chat-page.png)
 
 ### User stories and features
 
@@ -104,38 +105,33 @@ I would like to add friends to my account
 So we can code directly on the website without having to open vscode,
 I would like vscode integration.
 ```
-
+```
 So I can arrange spontaneous pairing sessions,
 I would like to see who is online so that I can invite people to pair immediately and get notifications.
 
 ```
 
 ```
-
 So I can share my skills and see other people’s ‘skills’
 I would like to endorse other members after pairing with them e.g. ‘is punctual’, ‘has good chat’
 
 ```
 
 ```
-
 So I can directly pair program via a zoom from the website,
 I would like zoom integration on website.
 
 ```
 
 ```
-
 So that I can have an easy sign-in process and automatically link my accounts,
 I would like the option to sign-up with github/linkedin.
 
 ```
 
 ```
-
 So I can get suggestions for katas to work on,
 I would like to see links to suggested/popular katas for my level/language.
 
 ```
 
-```
