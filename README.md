@@ -2,7 +2,7 @@
 
 **React | Express | Node.js | MongoDB | JavaScript | Socket.IO**<br>
 **Cypress | React Testing Library | Jest | Postman**<br>
-**Heroku | GitHub actions**
+**Heroku | GitHub Actions**
 
 MERN-built web app, with real-time chat using Socket.IO, that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise. 
 
