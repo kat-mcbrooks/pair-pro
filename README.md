@@ -1,10 +1,10 @@
 # PairPro - connecting you with your ideal pair partner!
 
-**React | Express | Node | MongoDB | JavaScript | Socket.IO**
-**Cypress | React Testing Library | Jest | Postman**
-**Heroku | GitHub actions**
+**React | Express | Node.js | MongoDB | JavaScript | Socket.IO**<br>
+**Cypress | React Testing Library | Jest | Postman**<br>
+**Heroku | GitHub Actions**
 
-MERN-built web app, with real-time chat using Socket.IO, that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise.
+MERN-built web app, with real-time chat using Socket.IO, that connects software developers with others who are interested in arranging pair programming sessions to share and develop their expertise. 
 
 ### Features
 
@@ -30,19 +30,21 @@ MERN-built web app, with real-time chat using Socket.IO, that connects software 
 4. Or, you can access the app at https://pairpro2022.herokuapp.com/
 
 ### To run tests
-
+```
 `$ yarn run test`
-
+```
 and for cypress end-to-end tests(you will need to have downloaded cypress):
 
 ```
   $ yarn run dev
   $ yarn run cypress open
 ```
-
-nb: I carried out backend API testing using Postman. Please find further screenshots in the assets folder.
-
-![people-page](/client/assets/images/people-list-page.png)
+nb: I carried out backend API testing using Postman. 
+   
+### App screenshots (please see further screenshots in the assets directory)
+   
+![people-page](./assets/images/people-list-page.PNG)
+![chat-page](./assets/images/chat-page.PNG)
 
 ### User stories and features
 
@@ -104,38 +106,33 @@ I would like to add friends to my account
 So we can code directly on the website without having to open vscode,
 I would like vscode integration.
 ```
-
+```
 So I can arrange spontaneous pairing sessions,
 I would like to see who is online so that I can invite people to pair immediately and get notifications.
 
 ```
 
 ```
-
 So I can share my skills and see other people’s ‘skills’
 I would like to endorse other members after pairing with them e.g. ‘is punctual’, ‘has good chat’
 
 ```
 
 ```
-
 So I can directly pair program via a zoom from the website,
 I would like zoom integration on website.
 
 ```
 
 ```
-
 So that I can have an easy sign-in process and automatically link my accounts,
 I would like the option to sign-up with github/linkedin.
 
 ```
 
 ```
-
 So I can get suggestions for katas to work on,
 I would like to see links to suggested/popular katas for my level/language.
 
 ```
 
-```
